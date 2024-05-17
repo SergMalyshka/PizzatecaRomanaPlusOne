@@ -1,12 +1,15 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+
 import App from './App.jsx';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
-import ErrorPage from './pages/ErrorPage';
+import Tab1 from './pages/Tab1';
+import Tab2 from './pages/Tab2';
+import Tab3 from './pages/Tab3';
+import Tab4 from './pages/Tab4';
+import ErrorPage from './pages/Error.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,19 +19,16 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Tab1 />
       }, {
-        path: '/login',
-        element: <Login />
+        path: '/Tab2',
+        element: <Tab2 />
       }, {
-        path: '/signup',
-        element: <Signup />
+        path: '/Tab3',
+        element: <Tab3 />
       }, {
-        path: '/profiles/:profileId',
-        element: <Profile />
-      }, {
-        path: '/me',
-        element: <Profile />
+        path: '/Tab4',
+        element: <Tab4 />
       }
     ]
   },
