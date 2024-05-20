@@ -5,10 +5,10 @@ export default function SignIn() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [dob, setDob] = useState('')
-  const [errorMessage, setErrorMessage] = useState('')
   const [medicalHistory, setMedicalHistory] = useState('')
   const [allergies, setAllergies] = useState('')
   const [medications, setMedications] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleFormSubmit = (e) => {
   };
