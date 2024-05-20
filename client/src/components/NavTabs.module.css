@@ -1,0 +1,18 @@
+.navigation {
+    background-color: #47A8BD;
+    color: #eeeff0;
+}
+
+.inactive {
+    color: #ffffff;
+}
+
+.inactive:hover {
+    color: #283845
+}
+
+.activeTab {
+    background-color:#FBFBFF;
+    color:#0E1116
+}
+
