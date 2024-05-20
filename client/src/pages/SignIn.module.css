@@ -1,0 +1,46 @@
+.singleRow {
+    margin-top: 5rem;
+    padding: 0%;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.vertical {
+    color: #47A8BD;
+    margin: auto;
+    padding: 2px;
+    height: 175px;
+}
+
+.or {
+    margin: auto;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #47A8BD
+}
+
+.option {
+    font-size: 3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #47A8BD
+}
+
+.formItem {
+    margin: 5px;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.button {
+    margin-top: 5px;
+    background-color: #ECA72C;
+}
+
+.signup {
+ padding-right: 7rem;
+}
+
+.signin {
+    padding-left: 7rem;
+}
