@@ -37,7 +37,7 @@ function NavTabs() {
           to="/SignIn"
           className={currentPage === '/SignIn' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
         >
-          Sign-In
+          Patient Sign-In
         </Link>
       </li>
     </ul>
