@@ -1,31 +1,46 @@
 const typeDefs = `
-type Profile {
+type Patient {
     _id: ID
-    name: String
-    email: String
-    password: String
-    skills: [String]!
+    firstName: String!
+    lastName: String!
+    dob: String!
+    visits: [Visit]
+    medicalHistory: [String]
+    allergies: [String]
+    medicaitons: [String]
   }
 
+  type Visit {
+    _id: ID
+    date: String!
+    notes: String
+  }
+
+  type Doctor {
+    username: String!
+  }
+
+  # required for login
   type Auth {
     token: ID!
-    profile: Profile
+    doctor: Doctor
   }
 
   type Query {
-    profiles: [Profile]!
-    profile(profileId: ID!): Profile
-    # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
-    me: Profile
+    # get all patient info
+    patients: [Patient]!
+    # get info for one patient
+    patient(patientId: ID!):Patient
+    # should allow us to check the logged in doctor when queried
+    me: Doctor
   }
 
   type Mutation {
-    addProfile(name: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
+    # mutation to add a new Doctor
+    addDoctor(username: String!, password: String!): Auth
+    # mutation to login
+    login(username: String!, password: String!): Auth
 
-    addSkill(profileId: ID!, skill: String!): Profile
-    removeProfile: Profile
-    removeSkill(skill: String!): Profile
   }
 `;
 
