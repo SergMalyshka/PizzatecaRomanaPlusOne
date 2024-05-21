@@ -3,7 +3,15 @@ const Doctor = require('../models/Doctor');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
-  Query: {},
+  Query: {
+    me: async (parent, args, context) =>{
+      console.log(context.doctor)
+      if (context.doctor) {
+        return Doctor.findOne({ _id: context.doctor._id });
+      }
+      throw AuthenticationError
+    },
+  },
 
   Mutation: {
     login: async (parent, { username, password }) => {
