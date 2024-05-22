@@ -1,5 +1,6 @@
 
 const Doctor = require('../models/Doctor');
+const Patient = require('../models/Patient');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -11,6 +12,10 @@ const resolvers = {
       }
       throw AuthenticationError
     },
+
+    patients: async (parent) => {
+      return Patient.find()
+    }
   },
 
   Mutation: {
@@ -31,12 +36,21 @@ const resolvers = {
       return { token, doctor };
     },
 
+    getPatient: async (parent, { firstName, lastName, dob }) => {
+      console.log(firstName, lastName, dob)
+      return Patient.findOne({firstName: firstName, lastName: lastName, dob: dob})
+    },
+
     addDoctor: async (parent, { username, password }) => {
       const doctor = await Doctor.create({ username, password });
       const token = signToken(doctor);
       console.log(token);
       return { token, doctor };
     },
+
+    addPatient: async (parent, {firstName, lastName, dob, visits, medicalHistory, allergies, medications}) => {
+      return Patient.create({firstName, lastName, dob, visits, medicalHistory, allergies, medications})
+    }
   },
 
 }
