@@ -4,18 +4,18 @@ type Patient {
     firstName: String!
     lastName: String!
     dob: String!
-    severity: String
     visits: [Visit]
-    medicalHistory: [String]
-    allergies: [String]
-    medications: [String]
+    medicalHistory: String
+    allergies: String
+    medications: String
   }
 
   type Visit {
     _id: ID
     date: String!
     notes: String
-    status String!
+    status: String!
+    severity: String!
   }
 
   type Doctor {
@@ -41,7 +41,7 @@ type Patient {
     # mutation to login
     login(username: String!, password: String!): Auth
     # mutation to add a single patient
-    addPatient(firstName: String!, lastName: String!, dob: String!, medicalHistory: String!, allergies: String!, medications: String!, severity: String!): Patient
+    addPatient(firstName: String!, lastName: String!, dob: String!, medicalHistory: String!, allergies: String!, medications: String!): Patient
     # get info for one patient
     getPatient(firstName: String!, lastName: String!, dob: String!): Patient!
   }

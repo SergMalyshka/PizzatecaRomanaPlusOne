@@ -15,28 +15,20 @@ const patientSchema = new Schema(
       type: String,
       required: true,
     },
-    severity: {
-      type: String,
-    },
     visits: [visitSchema],
-    medicalHistory: [
+    medicalHistory: 
       {
         type: String,
-        trim: true,
       },
-    ],
-    allergies: [
+    allergies:
       {
         type: String,
-        trim: true,
       },
-    ],
-    medications: [
+    medications:
       {
         type: String,
-        trim: true,
-      },
-    ],
+      }
+      
   },
   {
     toJSON: {

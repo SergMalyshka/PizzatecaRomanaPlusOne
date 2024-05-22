@@ -12,6 +12,10 @@ const visitSchema = new Schema({
         type: String,
         required: true
     },
+    severity: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = visitSchema
