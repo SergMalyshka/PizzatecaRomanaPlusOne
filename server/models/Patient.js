@@ -3,7 +3,7 @@ const vistSchema = require("./Vist");
 
 const patientSchema = new Schema(
   {
-    fistName: {
+    firstName: {
       type: String,
       required: true,
     },
@@ -12,7 +12,7 @@ const patientSchema = new Schema(
       required: true,
     },
     dob: {
-      type: Date,
+      type: String,
       required: true,
     },
     visits: [vistSchema],

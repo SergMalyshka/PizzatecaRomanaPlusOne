@@ -1,6 +1,9 @@
 import style from './SignIn.module.css'
 import { useState } from "react";
 import validator from '../../utils/validator';
+import { ADD_PATIENT, PATIENT_LOOKUP } from '../utils/mutations';
+
+import { useMutation } from '@apollo/client';
 
 export default function SignIn() {
   const [firstName, setFirstName] = useState('')
@@ -18,7 +21,12 @@ export default function SignIn() {
   const [closure, setClosure] = useState('')
   const [signInButton, setSignInButton] = useState(true)
 
-  const handleSignInSubmit = (e) => {
+
+  const [getPatient] = useMutation(PATIENT_LOOKUP)
+  const [addPatient] = useMutation(ADD_PATIENT)
+
+
+  const handleSignInSubmit = async (e) => {
     e.preventDefault()
 
     if (!renderSignUp) {
@@ -32,9 +40,16 @@ export default function SignIn() {
         return
       }
 
-      setSignInSuccess(false)
-      setErrorMessage("Patient Not found")
-      setRenderSignUp(true)
+      try {
+        const search = await getPatient({ variables: { firstName: firstName, lastName: lastName, dob: dob } })
+        setSignInSuccess(true)
+        setSuccessMessage("Patient found!")
+        setErrorMessage('')
+        setSignInButton(false)
+      } catch (err) {
+        setErrorMessage("Patient not found, complete all fields to sign one up")
+        setRenderSignUp(true)
+      }
     }
 
     if (renderSignUp) {
@@ -42,11 +57,14 @@ export default function SignIn() {
         setErrorMessage("Please complete all fields prior to submitting")
         return
       }
-      setSignInSuccess(true)
-      setSuccessMessage("Patient found!")
-      setErrorMessage('')
-      setSignInButton(false)
 
+      try {
+        await addPatient({ variables: { firstName: firstName, lastName: lastName, dob: dob, medicalHistory: medicalHistory, allergies: allergies, medications: medications } })
+        setSuccessMessage("Patient added to database")
+        setSignInSuccess(true)
+      } catch (err) {
+        console.log(err)
+      }
     }
   };
 

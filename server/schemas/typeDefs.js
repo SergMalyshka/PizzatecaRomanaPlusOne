@@ -7,7 +7,7 @@ type Patient {
     visits: [Visit]
     medicalHistory: [String]
     allergies: [String]
-    medicaitons: [String]
+    medications: [String]
   }
 
   type Visit {
@@ -29,8 +29,6 @@ type Patient {
   type Query {
     # get all patient info
     patients: [Patient]!
-    # get info for one patient
-    patient(patientId: ID!):Patient
     # should allow us to check the logged in doctor when queried
     me: Doctor
   }
@@ -40,7 +38,10 @@ type Patient {
     addDoctor(username: String!, password: String!): Auth
     # mutation to login
     login(username: String!, password: String!): Auth
-
+    # mutation to add a single patient
+    addPatient(firstName: String!, lastName: String!, dob: String!, medicalHistory: String!, allergies: String!, medications: String!): Patient
+    # get info for one patient
+    getPatient(firstName: String!, lastName: String!, dob: String!): Patient!
   }
 `;
 
