@@ -19,7 +19,7 @@
     color: #47A8BD
 }
 
-.option {
+.option, .loggedIn {
     font-size: 3rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #47A8BD
@@ -36,10 +36,31 @@
     background-color: #ECA72C;
 }
 
-.signup {
- padding-right: 7rem;
+.error {
+    color: #F02D3A
 }
 
-.signin {
-    padding-left: 7rem;
+.hr {
+    background-color:#47A8BD;
+}
+
+.severityText {
+    margin-top: 10px;
+    margin-bottom: 3px;
+    font-size: larger;
+    color: #47A8BD;
+}
+
+.severity {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.semi {
+    color: #D17A22
+}
+
+.severityForm {
+    max-width: 600px;
+    margin: auto;
 }
