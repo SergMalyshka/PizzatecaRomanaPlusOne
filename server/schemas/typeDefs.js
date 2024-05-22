@@ -5,15 +5,17 @@ type Patient {
     lastName: String!
     dob: String!
     visits: [Visit]
-    medicalHistory: [String]
-    allergies: [String]
-    medications: [String]
+    medicalHistory: String
+    allergies: String
+    medications: String
   }
 
   type Visit {
     _id: ID
     date: String!
     notes: String
+    status: String!
+    severity: String!
   }
 
   type Doctor {
