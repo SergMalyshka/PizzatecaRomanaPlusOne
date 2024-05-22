@@ -15,7 +15,10 @@ const patientSchema = new Schema(
       type: String,
       required: true,
     },
-    visits: [vistSchema],
+    severity: {
+      type: String,
+    },
+    visits: [visitSchema],
     medicalHistory: [
       {
         type: String,

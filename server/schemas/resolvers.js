@@ -48,8 +48,8 @@ const resolvers = {
       return { token, doctor };
     },
 
-    addPatient: async (parent, {firstName, lastName, dob, visits, medicalHistory, allergies, medications}) => {
-      return Patient.create({firstName, lastName, dob, visits, medicalHistory, allergies, medications})
+    addPatient: async (parent, {firstName, lastName, dob, visits, medicalHistory, allergies, medications, severity}) => {
+      return Patient.create({firstName, lastName, dob, visits, medicalHistory, allergies, medications, severity})
     }
   },
 

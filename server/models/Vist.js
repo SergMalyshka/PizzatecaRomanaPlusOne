@@ -1,14 +1,17 @@
 const {Schema} = require('mongoose');
 
-const vistSchema = new Schema({
+const visitSchema = new Schema({
     date: {
         type: Date,
         required: true,
     },
     notes: {
         type: String,
+    },
+    status: {
+        type: String,
         required: true
-    }
+    },
 });
 
-module.exports = vistSchema
+module.exports = visitSchema
