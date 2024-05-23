@@ -72,8 +72,8 @@ export const UPDATE_PATIENT = gql`
 `
 
 export const ADD_VISIT = gql`
-mutation AddVisit($date: String!, $status: String!, $severity: String!, $reason: String!) {
-  addVisit(date: $date, status: $status, severity: $severity, reason: $reason) {
+mutation AddVisit($date: String!, $status: String!, $severity: String!, $reason: String!, $patient: ID!) {
+  addVisit(date: $date, status: $status, severity: $severity, reason: $reason, patient: $patient) {
     _id
     date
     notes
