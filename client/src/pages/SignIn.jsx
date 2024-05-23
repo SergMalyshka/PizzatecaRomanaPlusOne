@@ -1,6 +1,6 @@
 import style from './SignIn.module.css'
 import { useState } from "react";
-import validator from '../../utils/validator';
+import validator from '../utils/validator';
 import { ADD_PATIENT, PATIENT_LOOKUP, ADD_VISIT } from '../utils/mutations';
 import { getDateNow } from '../utils/date';
 

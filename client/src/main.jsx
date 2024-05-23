@@ -7,8 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App.jsx';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import DoctorLogin from './pages/DoctorLogin.jsx';
 import SignIn from './pages/SignIn.jsx';
+import Test from './pages/Test.jsx';
 import ErrorPage from './pages/Error.jsx';
 
 const router = createBrowserRouter([
@@ -24,12 +25,15 @@ const router = createBrowserRouter([
         path: '/Tab2',
         element: <Tab2 />
       }, {
-        path: '/Tab3',
-        element: <Tab3 />
+        path: '/DoctorLogin',
+        element: <DoctorLogin />
       }, {
         path: '/SignIn',
         element: <SignIn />
-      }
+      }, {
+        path: '/Test',
+        element: <Test />
+      },
     ]
   },
 ]);

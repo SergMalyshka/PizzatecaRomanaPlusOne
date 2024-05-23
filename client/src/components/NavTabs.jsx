@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import style from './NavTabs.module.css'
+import Auth from '../utils/auth';
 
 // Here we are using object destructuring assignment to pluck off our variables from the props object
 // We assign them to their own variable names
@@ -24,12 +25,13 @@ function NavTabs() {
           Tab2
         </Link>
       </li>
+
       <li className="nav-item">
         <Link
-          to="/Tab3"
-          className={currentPage === '/Tab3' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
+          to="/Test"
+          className={currentPage === '/Test' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
         >
-          Tab3
+          Test
         </Link>
       </li>
       <li className="nav-item">
@@ -40,6 +42,18 @@ function NavTabs() {
           Patient Sign-In
         </Link>
       </li>
+      {Auth.loggedIn() ? (
+      <button className={`btn btn-warning ${style.button}`} onClick={Auth.logout}>Logout</button>
+      ) : (
+        
+      <li className="nav-item">
+        <Link
+          to="/DoctorLogin"
+          className={currentPage === '/DoctorLogin' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
+        >
+          Login
+        </Link>
+      </li>)}
     </ul>
   );
 }
