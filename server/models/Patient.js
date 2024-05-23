@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-const vistSchema = require("./Vist");
 
 const patientSchema = new Schema(
   {
@@ -15,25 +14,25 @@ const patientSchema = new Schema(
       type: String,
       required: true,
     },
-    visits: [vistSchema],
-    medicalHistory: [
+    visits: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Visit"
+      }
+    ],
+    medicalHistory: 
       {
         type: String,
-        trim: true,
       },
-    ],
-    allergies: [
+    allergies:
       {
         type: String,
-        trim: true,
       },
-    ],
-    medications: [
+    medications:
       {
         type: String,
-        trim: true,
-      },
-    ],
+      }
+      
   },
   {
     toJSON: {
