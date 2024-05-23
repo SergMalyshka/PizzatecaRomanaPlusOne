@@ -14,6 +14,13 @@ type Patient {
     _id: ID
     date: String!
     notes: String
+<<<<<<< Updated upstream
+=======
+    status: String!
+    severity: String!
+    reason: String!
+    patient: Patient
+>>>>>>> Stashed changes
   }
 
   type Doctor {
