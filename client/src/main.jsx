@@ -9,6 +9,7 @@ import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import DoctorLogin from './pages/DoctorLogin.jsx';
 import SignIn from './pages/SignIn.jsx';
+import Test from './pages/Test.jsx';
 import ErrorPage from './pages/Error.jsx';
 
 const router = createBrowserRouter([
@@ -29,7 +30,10 @@ const router = createBrowserRouter([
       }, {
         path: '/SignIn',
         element: <SignIn />
-      }
+      }, {
+        path: '/Test',
+        element: <Test />
+      },
     ]
   },
 ]);
