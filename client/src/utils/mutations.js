@@ -15,6 +15,7 @@ export const ADD_PATIENT = gql`
 mutation Mutation($firstName: String!, $lastName: String!, $dob: String!, $medicalHistory: String!, $allergies: String!, $medications: String!) {
   addPatient(firstName: $firstName, lastName: $lastName, dob: $dob, medicalHistory: $medicalHistory, allergies: $allergies, medications: $medications) {
     allergies
+    _id
     dob
     firstName
     lastName
@@ -30,6 +31,7 @@ mutation Mutation($firstName: String!, $lastName: String!, $dob: String!, $medic
 export const PATIENT_LOOKUP = gql `
 mutation GetPatient($firstName: String!, $lastName: String!, $dob: String!) {
   getPatient(firstName: $firstName, lastName: $lastName, dob: $dob) {
+    _id
     firstName
     lastName
     dob
@@ -68,3 +70,15 @@ export const UPDATE_PATIENT = gql`
     }
   }
 `
+
+export const ADD_VISIT = gql`
+mutation AddVisit($date: String!, $status: String!, $severity: String!, $reason: String!) {
+  addVisit(date: $date, status: $status, severity: $severity, reason: $reason) {
+    _id
+    date
+    notes
+    status
+    severity
+    reason
+  }
+}`

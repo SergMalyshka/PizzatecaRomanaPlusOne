@@ -1,8 +1,9 @@
-export default function Tab1() {
-<<<<<<< Updated upstream
-=======
+import { useQuery } from '@apollo/client';
+import { QUERY_ALL_OPEN_VISITS } from '../utils/queries';
 
->>>>>>> Stashed changes
+
+export default function Tab1() {
+
     return (
       <div>
         <h1>Tab1</h1>
