@@ -1,8 +1,8 @@
-const {Schema} = require('mongoose');
+const {Schema, model} = require('mongoose');
 
 const visitSchema = new Schema({
     date: {
-        type: Date,
+        type: String,
         required: true,
     },
     notes: {
@@ -15,7 +15,14 @@ const visitSchema = new Schema({
     severity: {
         type: String,
         required: true
+    },
+    reason: {
+        type: String,
+        required: true
     }
 });
 
-module.exports = visitSchema
+
+const Visit = model("Visit", visitSchema);
+
+module.exports = Visit

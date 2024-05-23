@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_SINGLE_PATIENT = gql `
+export const QUERY_SINGLE_PATIENT = gql`
 query Patient($firstName: String!, $lastName: String!, $dob: String!) {
   patient(firstName: $firstName, lastName: $lastName, dob: $dob) {
     _id
@@ -14,7 +14,7 @@ query Patient($firstName: String!, $lastName: String!, $dob: String!) {
 }
 `
 
-export const QUERY_SINGLE_DOCTOR = gql `
+export const QUERY_SINGLE_DOCTOR = gql`
        query singleDoctor($doctorId: ID!) {
          doctor(doctorId: $doctorId){
             _id
@@ -28,4 +28,15 @@ export const QUERY_ME = gql`
             _id
             username
         }
+    }`
+
+export const QUERY_ALL_OPEN_VISITS = gql`
+    query Query {
+      openVisits {
+        _id
+        date
+        notes
+        status
+        severity
+      }
     }`
