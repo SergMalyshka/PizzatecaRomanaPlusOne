@@ -9,7 +9,8 @@ import Auth from '../utils/auth'
 
 const DoctorLogin = (props) => {
   const [formState, setFormState] = useState({ username: "", password: "" });
-  const [login] = useMutation(LOGIN_USER);
+  const [errorMessage, setErrorMessage] = useState('')
+  const [login, {error}] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -23,10 +24,17 @@ const DoctorLogin = (props) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+
     try {
       const { data } = await login({
         variables: { ...formState },
       });
+
+      if(!data) {
+        setErrorMessage('Login unsucessful')
+        return
+      }
+
       console.log(data)
       Auth.login(data.login.token);
     } catch (e) {
@@ -54,7 +62,7 @@ const DoctorLogin = (props) => {
           />
           <input
             value={formState.password}
-            placeholder="Password"
+            placeholder="********"
             name="password"
             type="password"
             onChange={handleChange}
@@ -63,6 +71,12 @@ const DoctorLogin = (props) => {
           <button
             className={`btn btn-warning ${style.button}`} type="submit">
             Login</button>
+
+            {error && (
+              <div>
+                <p className={style.error}>{error.message}</p>
+              </div>
+            )}
 
         </form>    
       </div>
