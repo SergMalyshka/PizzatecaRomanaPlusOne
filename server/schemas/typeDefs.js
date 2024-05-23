@@ -16,6 +16,9 @@ type Patient {
     notes: String
     status: String!
     severity: String!
+    reason: String!
+    patient: Patient
+
   }
 
   type Doctor {
@@ -33,6 +36,8 @@ type Patient {
     patients: [Patient]!
     # should allow us to check the logged in doctor when queried
     me: Doctor
+    # return All Visits
+    openVisits: [Visit]!
   }
 
   type Mutation {
@@ -44,6 +49,8 @@ type Patient {
     addPatient(firstName: String!, lastName: String!, dob: String!, medicalHistory: String!, allergies: String!, medications: String!): Patient
     # get info for one patient
     getPatient(firstName: String!, lastName: String!, dob: String!): Patient!
+    # add a visit
+    addVisit(date: String!, notes: [String], status: String!, severity: String!, reason: String!): Visit!
   }
 `;
 

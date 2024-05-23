@@ -1,15 +1,19 @@
 import style from './SignIn.module.css'
 import { useState } from "react";
-import validator from '../../utils/validator';
-import { ADD_PATIENT, PATIENT_LOOKUP } from '../utils/mutations';
+import validator from '../utils/validator';
+import { ADD_PATIENT, PATIENT_LOOKUP, ADD_VISIT } from '../utils/mutations';
+import { getDateNow } from '../utils/date';
+
 
 import { useMutation } from '@apollo/client';
 
 export default function SignIn() {
+
+  
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [dob, setDob] = useState('')
-  const [visitReason, setReason] = useState('')
+  const [reason, setReason] = useState('')
   const [medicalHistory, setMedicalHistory] = useState('')
   const [allergies, setAllergies] = useState('')
   const [medications, setMedications] = useState('')
@@ -20,10 +24,12 @@ export default function SignIn() {
   const [renderSignUp, setRenderSignUp] = useState(false)
   const [closure, setClosure] = useState('')
   const [signInButton, setSignInButton] = useState(true)
+  const [userId, setUserId] = useState('')
 
 
   const [getPatient] = useMutation(PATIENT_LOOKUP)
   const [addPatient] = useMutation(ADD_PATIENT)
+  const [addVIsit] = useMutation(ADD_VISIT)
 
 
   const handleSignInSubmit = async (e) => {
@@ -42,6 +48,7 @@ export default function SignIn() {
 
       try {
         const search = await getPatient({ variables: { firstName: firstName, lastName: lastName, dob: dob } })
+        setUserId(search.data.getPatient._id)
         setSignInSuccess(true)
         setSuccessMessage("Patient found!")
         setErrorMessage('')
@@ -59,8 +66,9 @@ export default function SignIn() {
       }
 
       try {
-        await addPatient({ variables: { firstName: firstName, lastName: lastName, dob: dob, medicalHistory: medicalHistory, allergies: allergies, medications: medications } })
+        const search = await addPatient({ variables: { firstName: firstName, lastName: lastName, dob: dob, medicalHistory: medicalHistory, allergies: allergies, medications: medications } })
         setSuccessMessage("Patient added to database")
+        setUserId(search.data.addPatient._id)
         setSignInSuccess(true)
       } catch (err) {
         console.log(err)
@@ -68,10 +76,17 @@ export default function SignIn() {
     }
   };
 
-  const handleCompleteCheckIn = (e) => {
+  const handleCompleteCheckIn = async (e) => {
+    
     e.preventDefault()
     setClosure("Check in completed successfully")
+    
 
+    try {
+      const newVisit = await addVIsit({variables: {date: getDateNow(), status: "Intake", severity: severity, reason: reason}})
+    } catch (err) {
+      console.log(err)
+    }
 
     //logic to create data before reset here
 
@@ -208,7 +223,7 @@ export default function SignIn() {
             <p className={style.loggedIn}>{successMessage}</p>
             <form className={style.severityForm} onSubmit={handleCompleteCheckIn}>
               <input
-                value={visitReason}
+                value={reason}
                 name='visitReason'
                 onChange={handleSeverityChange}
                 type="text"
