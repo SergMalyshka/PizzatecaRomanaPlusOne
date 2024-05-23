@@ -50,7 +50,7 @@ type Patient {
     # get info for one patient
     getPatient(firstName: String!, lastName: String!, dob: String!): Patient!
     # add a visit
-    addVisit(date: String!, notes: [String], status: String!, severity: String!, reason: String!): Visit!
+    addVisit(date: String!, notes: [String], status: String!, severity: String!, reason: String!, patient: ID!): Visit!
   }
 `;
 
