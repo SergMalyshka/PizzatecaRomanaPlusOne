@@ -15,11 +15,11 @@ const resolvers = {
     },
 
     patients: async (parent) => {
-      return Patient.find()
+      return Patient.find().populate('visits')
     },
     openVisits: async (parent) => {
-      return Visit.find()
-    }
+      return Visit.find().populate('patient')
+    },
   },
 
   Mutation: {
@@ -41,9 +41,8 @@ const resolvers = {
     },
 
     getPatient: async (parent, { firstName, lastName, dob }) => {
-      console.log(firstName, lastName, dob)
-      
-      return Patient.findOne({firstName: firstName, lastName: lastName, dob: dob})
+      return Patient.findOne({firstName: firstName, lastName: lastName, dob: dob}).populate('visits')
+
     },
 
     addDoctor: async (parent, { username, password }) => {
@@ -57,9 +56,9 @@ const resolvers = {
       return Patient.create({firstName, lastName, dob, visits, medicalHistory, allergies, medications})
     },
 
-    addVisit: async (parent, {date, notes, status, severity, reason}) => {
-      return Visit.create({date, notes, status, severity, reason})
-    }
+    addVisit: async (parent, {date, notes, status, severity, reason, patient}) => {
+      return Visit.create({date, notes, status, severity, reason, patient})
+    },
   },
 
 }

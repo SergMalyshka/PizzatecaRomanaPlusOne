@@ -19,6 +19,10 @@ const visitSchema = new Schema({
     reason: {
         type: String,
         required: true
+    },
+    patient: {
+        type: Schema.Types.ObjectId,
+        ref: 'Patient'
     }
 });
 

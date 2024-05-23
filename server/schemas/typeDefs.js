@@ -17,6 +17,8 @@ type Patient {
     status: String!
     severity: String!
     reason: String!
+    patient: Patient
+
   }
 
   type Doctor {
