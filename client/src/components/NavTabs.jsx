@@ -41,8 +41,17 @@ function NavTabs() {
         >
           Patient Sign-In
         </Link>
+        </li>
+        <li className="nav-item">
+        <Link
+          to="/AddDoctor"
+          className={currentPage === '/AddDoctor' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
+        >
+          Create Login
+        </Link>
       </li>
       {Auth.loggedIn() ? (
+        
       <button className={`btn btn-warning ${style.button}`} onClick={Auth.logout}>Logout</button>
       ) : (
         
