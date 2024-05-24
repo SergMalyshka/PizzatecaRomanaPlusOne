@@ -2,14 +2,24 @@ import style from "./SignIn.module.css"
 import {useState} from "react";
 import { Link } from "react-router-dom";
 
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { ADD_DOCTOR } from "../utils/mutations";
+import {QUERY_ME} from '../utils/queries'
 import Auth from "../utils/auth"
 
 
 const AddDoctor = () => {
 const [formState, setFormState] = useState({ username: "", password: "" });
 const [addDoc, { error }] = useMutation(ADD_DOCTOR);
+const {loading, data} = useQuery(QUERY_ME);
+
+const profile = data?.me || {};
+
+if (loading) {
+  return <div>Loading</div>
+}
+
+console.log(profile)
 
 const handleChange = (event) => {
     const { name, value } = event.target;
@@ -63,6 +73,8 @@ return (
               <button className={`btn btn-warning ${style.button}`} type="submit">
               Submit
             </button>
+
+            <p>{profile.username} is currently logged in</p>
 
             {error && (
               <div>

@@ -51,8 +51,7 @@ function NavTabs() {
         </Link>
       </li>
       {Auth.loggedIn() ? (
-        
-      <button className={`btn btn-warning ${style.button}`} onClick={Auth.logout}>Logout</button>
+      <a className={`btn btn-warning ${style.button}`} onClick={Auth.logout}>Logout</a>
       ) : (
         
       <li className="nav-item">
