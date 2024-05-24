@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import { UPDATE_PATIENT, ADD_VISIT } from '../utils/mutations';
+import { UPDATE_VISIT } from '../utils/mutations';
 import { QUERY_SINGLE_VISIT } from '../utils/queries';
 
 const VisitForm = () => {
@@ -9,9 +9,9 @@ const VisitForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-  const [updatePatient, { error }] = useMutation(UPDATE_PATIENT);
+  const [updateVisit, { error }] = useMutation(UPDATE_VISIT);
     try {
-      const { data } = await updatePatient({
+      const { data } = await updateVisit({
         variables: { _id: patientId, notes },
       });
       window.location.replace('/Rooms');

@@ -68,11 +68,9 @@ const resolvers = {
       return newVisit;
     },
     updateVisit: async (parent, {_id, notes}) => {
-      console.log("🚀 ~ updateVisit: ~ notes:", notes)
-      console.log("🚀 ~ updateVisit: ~ id:", _id)
-      
+      const stringNotes = notes.toString()
       const updVisit = await Visit.findOneAndUpdate
-      ({_id:_id}, {$addToSet: {notes: {notes} }})
+      ({_id:_id}, {$addToSet: {notes: stringNotes }})
       return updVisit;
     }
   },
