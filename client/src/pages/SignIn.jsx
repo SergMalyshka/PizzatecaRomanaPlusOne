@@ -83,7 +83,7 @@ export default function SignIn() {
     
 
     try {
-      const newVisit = await addVIsit({variables: {date: getDateNow(), status: "Intake", severity: severity, reason: reason}})
+      const newVisit = await addVIsit({variables: {date: getDateNow(), status: "Intake", severity: severity, reason: reason, patient: userId}})
     } catch (err) {
       console.log(err)
     }
