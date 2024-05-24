@@ -20,6 +20,11 @@ const resolvers = {
     openVisits: async (parent) => {
       return Visit.find().populate('patient')
     },
+    getOneVisit: async (parent, {_id}) => {
+      const getVisit = await Visit.findOne({_id:_id}).populate('patient')
+      console.log("🚀 ~ getOneVisit: ~ getVisit:", getVisit)
+      return getVisit
+    },
   },
 
   Mutation: {
@@ -62,6 +67,14 @@ const resolvers = {
       await Patient.findOneAndUpdate({_id: patient}, {$addToSet: {visits: newVisit._id}})
       return newVisit;
     },
+    updateVisit: async (parent, {_id, notes}) => {
+      console.log("🚀 ~ updateVisit: ~ notes:", notes)
+      console.log("🚀 ~ updateVisit: ~ id:", _id)
+      
+      const updVisit = await Visit.findOneAndUpdate
+      ({_id:_id}, {$addToSet: {notes: {notes} }})
+      return updVisit;
+    }
   },
 
 }
