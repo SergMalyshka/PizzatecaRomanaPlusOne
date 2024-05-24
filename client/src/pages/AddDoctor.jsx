@@ -1,27 +1,16 @@
-import style from "./SignIn.module.css"
-import {useState} from "react";
-import { Link } from "react-router-dom";
+import style from "./SignIn.module.css";
+import { useState } from "react";
 
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_DOCTOR } from "../utils/mutations";
-import {QUERY_ME} from '../utils/queries'
 import Auth from "../utils/auth"
 
 
 const AddDoctor = () => {
-const [formState, setFormState] = useState({ username: "", password: "" });
-const [addDoc, { error }] = useMutation(ADD_DOCTOR);
-const {loading, data} = useQuery(QUERY_ME);
+  const [formState, setFormState] = useState({ username: "", password: "" });
+  const [addDoc, { error, data }] = useMutation(ADD_DOCTOR);
 
-const profile = data?.me || {};
-
-if (loading) {
-  return <div>Loading</div>
-}
-
-console.log(profile)
-
-const handleChange = (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
 
     setFormState({
@@ -33,27 +22,33 @@ const handleChange = (event) => {
   const handleAddDoc = async (event) => {
     event.preventDefault();
     console.log(formState);
-  
+
     try {
       const { data } = await addDoc({
-        variables: {...formState},
+        variables: { ...formState },
       });
-      console.log(data)
-  
-      Auth.login(data.addDoc.token);
+      console.log(data);
     } catch (e) {
       console.error(e);
     }
+    setFormState({
+      username: "",
+      password: "",
+    })
   };
 
-return (
+  return (
     <div>
       {Auth.loggedIn() ? (
         <div>
           <p className={`${style.option}`}>Add new login credentials</p>
-       
+          <p></p>
+
           <div>
-            <form className={`form ${style.severityForm}`} onSubmit={handleAddDoc}>
+            <form
+              className={`form ${style.severityForm}`}
+              onSubmit={handleAddDoc}
+            >
               <input
                 value={formState.username}
                 placeholder="Username"
@@ -70,25 +65,35 @@ return (
                 className={`form-control ${style.formItem}`}
                 onChange={handleChange}
               />
-              <button className={`btn btn-warning ${style.button}`} type="submit">
-              Submit
-            </button>
+              <button
+                className={`btn btn-warning ${style.button}`}
+                type="submit"
+              >
+                Submit
+              </button>
 
-            <p>{profile.username} is currently logged in</p>
+              {data && (
+                <div>
+                  <p>
+                    Login credentals for {data.addDoctor.doctor.username} are
+                    now in the database
+                  </p>
+                </div>
+              )}
 
-            {error && (
-              <div>
-                <p className={style.error}>{error.message}</p>
-              </div>
-            )}
+              {error && (
+                <div>
+                  <p className={style.error}>{error.message}</p>
+                </div>
+              )}
             </form>
           </div>
         </div>
-      ) : ( 
+      ) : (
         <p>You must login before creating new login credentials</p>
       )}
-
     </div>
-)}
+  );
+};
 
-export default AddDoctor
+export default AddDoctor;

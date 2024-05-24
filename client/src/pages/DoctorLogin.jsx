@@ -45,22 +45,6 @@ const DoctorLogin = () => {
     });
   };
 
-const handleAddDoc = async (event) => {
-  event.preventDefault();
-  console.log(formState);
-
-  try {
-    const { data } = await addDoc({
-      variables: {...formState},
-    });
-    console.log(data)
-
-    Auth.login(data.addDoc.token);
-  } catch (e) {
-    console.error(e);
-  }
-};
-
   return (
     <div>
       {Auth.loggedIn() ? (
