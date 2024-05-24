@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App.jsx';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
+import AddDoctor from './pages/AddDoctor.jsx';
 import DoctorLogin from './pages/DoctorLogin.jsx';
 import SignIn from './pages/SignIn.jsx';
 import Test from './pages/Test.jsx';
@@ -33,6 +34,9 @@ const router = createBrowserRouter([
       }, {
         path: '/Test',
         element: <Test />
+      }, {
+        path: '/AddDoctor',
+        element: <AddDoctor />
       },
     ]
   },

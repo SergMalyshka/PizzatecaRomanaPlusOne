@@ -1,6 +1,3 @@
-import { useQuery } from '@apollo/client';
-import { QUERY_ALL_OPEN_VISITS } from '../utils/queries';
-
 
 export default function Tab1() {
 

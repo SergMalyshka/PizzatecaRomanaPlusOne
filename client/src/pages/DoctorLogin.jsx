@@ -6,9 +6,8 @@ import { LOGIN_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
-const DoctorLogin = (props) => {
+const DoctorLogin = () => {
   const [formState, setFormState] = useState({ username: "", password: "" });
-  const [errorMessage, setErrorMessage] = useState("");
   const [login, { error }] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
@@ -51,29 +50,6 @@ const DoctorLogin = (props) => {
       {Auth.loggedIn() ? (
         <div>
           <p className={`${style.option}`}>Login Sucessful</p>
-       
-          <div>
-            <p>Add new login credentials</p>
-            <form className={`form ${style.severityForm}`}>
-              <input
-                value={formState.username}
-                placeholder="Username"
-                type="username"
-                name="username"
-                className={`form-control ${style.formItem}`}
-              />
-              <input
-                value={formState.username}
-                placeholder="Password"
-                type="password"
-                name="password"
-                className={`form-control ${style.formItem}`}
-              />
-              <button className={`btn btn-warning ${style.button}`} type="submit">
-              Submit
-            </button>
-            </form>
-          </div>
         </div>
       ) : (
         <div className={`${style.signin}`}>
