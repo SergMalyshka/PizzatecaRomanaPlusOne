@@ -43,12 +43,14 @@ mutation GetPatient($firstName: String!, $lastName: String!, $dob: String!) {
 `
 
 export const ADD_DOCTOR = gql`
-  mutation addDoctor($username: String!, $password: String!) {
-    addDoctor(username: $username, password:$password) {
-        _id
-        username
+mutation Mutation($username: String!, $password: String!) {
+  addDoctor(username: $username, password: $password) {
+    token
+    doctor {
+      username
     }
   }
+}
 `
 
 export const UPDATE_PATIENT = gql`

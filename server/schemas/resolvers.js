@@ -53,7 +53,6 @@ const resolvers = {
     addDoctor: async (parent, { username, password }) => {
       const doctor = await Doctor.create({ username, password });
       const token = signToken(doctor);
-      console.log(token);
       return { token, doctor };
     },
 

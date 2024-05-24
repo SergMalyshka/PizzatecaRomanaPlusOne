@@ -49,12 +49,11 @@ export const QUERY_SINGLE_DOCTOR = gql`
        }`
 
 export const QUERY_ME = gql`
-    query me {
-        me {
-            _id
-            username
-        }
-    }`
+query Query {
+  me {
+    username
+  }
+}`
 
 export const QUERY_ALL_OPEN_VISITS = gql`
     query Query {
