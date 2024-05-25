@@ -12,6 +12,7 @@ import DoctorLogin from './pages/DoctorLogin.jsx';
 import SignIn from './pages/SignIn.jsx';
 import Test from './pages/Test.jsx';
 import ErrorPage from './pages/Error.jsx';
+import Home from './pages/Home.jsx';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Tab1 />
+        element: <Home />
       }, {
         path: '/Tab2',
         element: <Tab2 />
