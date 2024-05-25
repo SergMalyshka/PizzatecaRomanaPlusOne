@@ -1,5 +1,6 @@
 import style from "./SignIn.module.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_DOCTOR } from "../utils/mutations";
@@ -90,7 +91,7 @@ const AddDoctor = () => {
           </div>
         </div>
       ) : (
-        <p>You must login before creating new login credentials</p>
+        <p>You must <Link to="/DoctorLogin">login</Link> before creating new login credentials</p>
       )}
     </div>
   );
