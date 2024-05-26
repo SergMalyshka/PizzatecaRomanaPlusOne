@@ -13,7 +13,7 @@ type Patient {
   type Visit {
     _id: ID
     date: String!
-    notes: String
+    notes: [String]
     status: String!
     severity: String!
     reason: String!
@@ -54,7 +54,7 @@ type Patient {
     # add a visit
     addVisit(date: String!, notes: [String], status: String!, severity: String!, reason: String!, patient: ID!): Visit!
     # update visit notes
-    updateVisit(_id:ID!, notes:String!): Visit!
+    updateVisit(_id:ID!, notes:[String]!): Visit!
   }
 `;
 

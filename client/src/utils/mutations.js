@@ -83,3 +83,12 @@ mutation AddVisit($date: String!, $status: String!, $severity: String!, $reason:
     reason
   }
 }`
+
+export const UPDATE_VISIT = gql`
+mutation UpdateVisit($id: ID!, $notes: [String]!) {
+  updateVisit(_id: $id, notes: $notes) {
+    _id
+    notes
+  }
+}
+`

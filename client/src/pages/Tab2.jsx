@@ -3,24 +3,30 @@ import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { UPDATE_VISIT } from '../utils/mutations';
 import { QUERY_SINGLE_VISIT } from '../utils/queries';
+import PatientDetails from "../components/PatientDetails"
+import PreviousNotes from '../components/PreviousNotes';
 
 const VisitForm = () => {
   const [notes, setNotes] = useState('');
+  const [updateVisit] = useMutation(UPDATE_VISIT);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-  const [updateVisit, { error }] = useMutation(UPDATE_VISIT);
     try {
+      console.log("🚀 ~ handleFormSubmit ~ notes:", notes)
+      console.log("🚀 ~ handleFormSubmit ~ visitId:", visitId)
       const { data } = await updateVisit({
-        variables: { _id: patientId, notes },
+        variables: { id: visitId, notes },
       });
-      window.location.replace('/Rooms');
+      console.log("🚀 ~ handleFormSubmit ~ data:", data)
+      // window.location.replace('/');
     } catch (err) {
       console.error(err);
     }
   };
+
 //  const SingleVisit = () => {
-   const visitId = "664feb1fa226c1d0c8db3869";
+   const visitId = "66532b3cc7d16241f9815233";
    // const { visitId } = useParams();
    const { loading, error, data } = useQuery(QUERY_SINGLE_VISIT,{
      variables: {id: visitId}
@@ -31,7 +37,6 @@ const VisitForm = () => {
       return <div>Loading...</div>;
       }
     console.log("🚀 ~ VisitForm ~ data:", data.getOneVisit)
-    const fullName = data.getOneVisit.patient.firstName + " " + data.getOneVisit.patient.lastName;
 
 
   return (
@@ -39,21 +44,22 @@ const VisitForm = () => {
     <h2>Visit Details</h2>
     <form className="flex-row justify-center justify-space-between-md align-center"
         onSubmit={handleFormSubmit}>
-     <div className="col-12 col-lg-9">
-          <p>Patient Name: {fullName}</p>
-          <p>Patient DOB : {data.getOneVisit.patient.dob}</p>
-          <p>Visit Reason: {data.getOneVisit.reason}</p>
-     </div>
-     <div className="col-12 col-lg-9">
-          <input
+          <PatientDetails data={data.getOneVisit} />
+          <hr />
+          <PreviousNotes data={data.getOneVisit} />
+          <hr />
+     <div className="text-center ">
+          <textarea
+            rows='6'
+            cols='10'
             placeholder="Notes"
             value={notes}
             className="form-input w-100"
             onChange={(event) => setNotes(event.target.value)}
           />
      </div>
-     <div className="col-12 col-lg-3">
-       <button className="btn btn-info btn-block py-2" type="submit">
+     <div className="col-12 ">
+       <button className="btn btn-info btn-block text-end" type="submit">
             Save Note
        </button>
      </div>

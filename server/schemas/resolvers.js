@@ -22,7 +22,6 @@ const resolvers = {
     },
     getOneVisit: async (parent, {_id}) => {
       const getVisit = await Visit.findOne({_id:_id}).populate('patient')
-      console.log("🚀 ~ getOneVisit: ~ getVisit:", getVisit)
       return getVisit
     },
   },
@@ -62,7 +61,6 @@ const resolvers = {
 
     addVisit: async (parent, {date, notes, status, severity, reason, patient}) => {
       const newVisit = await Visit.create({date, notes, status, severity, reason, patient})
-      console.log(newVisit)
       await Patient.findOneAndUpdate({_id: patient}, {$addToSet: {visits: newVisit._id}})
       return newVisit;
     },
