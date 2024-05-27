@@ -91,15 +91,8 @@ export default function SignIn() {
     setClosure("Check in completed successfully");
 
     try {
-      const newVisit = await addVIsit({
-        variables: {
-          date: getDateNow(),
-          status: "Intake",
-          severity: severity,
-          reason: reason,
-          patient: userId,
-        },
-      });
+      const newVisit = await addVIsit({variables: {date: getDateNow(), status: "Intake", severity: severity, reason: reason, patient: userId, notes:[]}})
+
     } catch (err) {
       console.log(err);
     }
