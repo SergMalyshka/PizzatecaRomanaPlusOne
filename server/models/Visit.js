@@ -6,7 +6,7 @@ const visitSchema = new Schema({
         required: true,
     },
     notes: {
-        type: String,
+        type: [String],
     },
     status: {
         type: String,

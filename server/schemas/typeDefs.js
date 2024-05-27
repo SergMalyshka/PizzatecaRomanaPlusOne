@@ -13,7 +13,7 @@ type Patient {
   type Visit {
     id: ID
     date: String!
-    notes: String
+    notes: [String]
     status: String!
     severity: String!
     reason: String!
@@ -38,6 +38,8 @@ type Patient {
     me: Doctor
     # return All Visits
     openVisits: [Visit]!
+    # get one visit
+    getOneVisit(_id:ID!):Visit
   }
 
   type Mutation {
@@ -51,6 +53,8 @@ type Patient {
     getPatient(firstName: String!, lastName: String!, dob: String!): Patient!
     # add a visit
     addVisit(date: String!, notes: [String], status: String!, severity: String!, reason: String!, patient: ID!): Visit!
+    # update visit notes
+    updateVisit(_id:ID!, notes:[String]!): Visit!
   }
 `;
 
