@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import style from './NavTabs.module.css'
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 
 // Here we are using object destructuring assignment to pluck off our variables from the props object
 // We assign them to their own variable names

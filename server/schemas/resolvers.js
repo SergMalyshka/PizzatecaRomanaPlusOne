@@ -58,7 +58,7 @@ const resolvers = {
     addVisit: async (parent, {date, notes, status, severity, reason, patient}) => {
       const newVisit = await Visit.create({date, notes, status, severity, reason, patient})
       console.log(newVisit)
-      await Patient.findOneAndUpdate({_id: patient}, {$addToSet: {visits: newVisit._id}})
+      await Patient.findOneAndUpdate({_id: patient}, {$addToSet: {visits: newVisit.id}})
       return newVisit;
     },
   },
