@@ -21,7 +21,7 @@ mutation Mutation($firstName: String!, $lastName: String!, $dob: String!, $medic
     medicalHistory
     medications
     visits {
-      _id
+      id
     }
   }
 }
@@ -64,7 +64,7 @@ export const UPDATE_PATIENT = gql`
         allergies
         medications
         visit {
-            _id
+            id
             visitDate
             visitNotes
         }
@@ -75,7 +75,7 @@ export const UPDATE_PATIENT = gql`
 export const ADD_VISIT = gql`
 mutation AddVisit($date: String!, $status: String!, $severity: String!, $reason: String!, $patient: ID!) {
   addVisit(date: $date, status: $status, severity: $severity, reason: $reason, patient: $patient) {
-    _id
+    id
     date
     notes
     status
@@ -87,7 +87,7 @@ mutation AddVisit($date: String!, $status: String!, $severity: String!, $reason:
 export const UPDATE_VISIT = gql`
 mutation UpdateVisit($id: ID!, $notes: [String]!) {
   updateVisit(_id: $id, notes: $notes) {
-    _id
+    id
     notes
   }
 }

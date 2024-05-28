@@ -28,10 +28,10 @@ function NavTabs() {
 
       <li className="nav-item">
         <Link
-          to="/Test"
-          className={currentPage === '/Test' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
+          to="/Dashboard"
+          className={currentPage === '/Dashboard' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
         >
-          Test
+          Dashboard
         </Link>
       </li>
       <li className="nav-item">

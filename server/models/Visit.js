@@ -23,6 +23,10 @@ const visitSchema = new Schema({
     patient: {
         type: Schema.Types.ObjectId,
         ref: 'Patient'
+    },
+    room: {
+        type: String,
+        default: ""
     }
 });
 

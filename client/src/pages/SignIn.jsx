@@ -65,7 +65,7 @@ export default function SignIn() {
         setErrorMessage("Please complete all fields prior to submitting");
         return;
       }
-
+      console.log(firstName, lastName, dob, medicalHistory, allergies, medications)
       try {
         const search = await addPatient({
           variables: {
@@ -90,8 +90,9 @@ export default function SignIn() {
     e.preventDefault();
     setClosure("Check in completed successfully");
 
+    console.log(severity, reason, userId)
     try {
-      const newVisit = await addVIsit({variables: {date: getDateNow(), status: "Intake", severity: severity, reason: reason, patient: userId, notes:[]}})
+      const newVisit = await addVIsit({variables: {date: getDateNow(), status: "Waiting", severity: severity, reason: reason, patient: userId}})
 
     } catch (err) {
       console.log(err);

@@ -1,30 +1,58 @@
 import { useState } from "react"
-import { DndContext, closestCorners} from "@dnd-kit/core"
+import { DndContext, closestCorners } from "@dnd-kit/core"
 import { arrayMove } from "@dnd-kit/sortable";
-import { VisitContainer } from "../VisitContainer/VisitContainer";
+import { VisitList } from "../VisitList/VisitList";
+import style from "./VisitWrapper.module.css"
+import { useQuery } from "@apollo/client";
 
 
 export const VisitWrapper = ({ visits }) => {
 
-    const [visitData, setVisitData] = useState(visits)
-    const getVisitPos = id => visitData.findIndex(visit => visit.id === id)
+  const waiting = []
+  const beingSeen = []
 
-    const handleDragEnd = event => {
-      const { active, over } = event
-      if (active.id === over.id) return
-  
-      setVisitData((visitData) => {
-        const originalPos = getVisitPos(active.id)
-        const newPos = getVisitPos(over.id)
-        return arrayMove(visitData, originalPos, newPos)
-      })
+  for (const visit of visits) {
+    if (visit.status === "Waiting") {
+      waiting.push(visit)
+    } else {
+      beingSeen.push(visit)
     }
+  }
+
+  const [waitingData, setWaitingData] = useState(waiting)
+  const getVisitPos = id => waitingData.findIndex(visit => visit.id === id)
+
+  const handleDragEnd = event => {
+    const { active, over } = event
+    if (active.id === over.id) return
+
+    setWaitingData((visitData) => {
+      const originalPos = getVisitPos(active.id)
+      const newPos = getVisitPos(over.id)
+      return arrayMove(visitData, originalPos, newPos)
+    })
+  }
 
 
-    return (
+  return (
+    <div className="row align-items-start">
+      <div className="col-5">
+        <h2 className={style.bigText}>Waiting</h2>
+        <hr className={style.hr}></hr>
         <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-                <VisitContainer visits={visitData} />
+          <VisitList visits={waitingData} />
         </DndContext>
-    )
+      </div>
+      <div className="col-1">
+        <button>Next</button>
+      </div>
+      <div className="col-6">
+        <h2 className={style.bigText}>Being Seen</h2>
+        <hr className={style.hr}></hr>
+        <VisitList visits={beingSeen} />
+      </div>
+    </div>
+
+  )
 
 }

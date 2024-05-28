@@ -10,7 +10,7 @@ import Tab2 from './pages/Tab2';
 import AddDoctor from './pages/AddDoctor.jsx';
 import DoctorLogin from './pages/DoctorLogin.jsx';
 import SignIn from './pages/SignIn.jsx';
-import Test from './pages/Test.jsx';
+import Dashboard from './pages/Dashboard.jsx';
 import ErrorPage from './pages/Error.jsx';
 import Home from './pages/Home.jsx';
 
@@ -33,8 +33,8 @@ const router = createBrowserRouter([
         path: '/SignIn',
         element: <SignIn />
       }, {
-        path: '/Test',
-        element: <Test />
+        path: '/Dashboard',
+        element: <Dashboard />
       }, {
         path: '/AddDoctor',
         element: <AddDoctor />
