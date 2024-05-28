@@ -18,7 +18,7 @@ const resolvers = {
       return Patient.find().populate('visits')
     },
     openVisits: async (parent) => {
-      return Visit.find().populate('patient')
+      return Visit.find({status: {$in: ['Waiting', 'Being Seen']}}).populate('patient')
     },
     getOneVisit: async (parent, {_id}) => {
       const getVisit = await Visit.findOne({_id:_id}).populate('patient')
@@ -59,8 +59,8 @@ const resolvers = {
       return Patient.create({firstName, lastName, dob, visits, medicalHistory, allergies, medications})
     },
 
-    addVisit: async (parent, {date, notes, status, severity, reason, patient}) => {
-      const newVisit = await Visit.create({date, notes, status, severity, reason, patient})
+    addVisit: async (parent, {date, notes, status, severity, reason, patient, room}) => {
+      const newVisit = await Visit.create({date, notes, status, severity, reason, patient, room})
       await Patient.findOneAndUpdate({_id: patient}, {$addToSet: {visits: newVisit.id}})
       return newVisit;
     },

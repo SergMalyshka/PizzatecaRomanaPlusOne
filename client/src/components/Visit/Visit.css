@@ -7,11 +7,17 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 20px;
     touch-action: none;
   }
   
-  .checkbox {
-    height: 20px;
-    width: 20px;
+  .Critical {
+    background-color: #fe9191
+  }
+
+  .Semi-Urgent {
+    background-color: #FFCE5C;
+  }
+
+  .Non-Urgent {
+    background-color: #13F64C;
   }

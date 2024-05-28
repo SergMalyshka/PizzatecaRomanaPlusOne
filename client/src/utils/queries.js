@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
 export const QUERY_SINGLE_VISIT = gql`
 query GetOneVisit($id: ID!) {
   getOneVisit(_id: $id) {
-    _id
+    id
     date
     notes
     status
@@ -17,13 +17,6 @@ query GetOneVisit($id: ID!) {
   }
 }
 `
-
-
-
-
-
-
-
 
 
 export const QUERY_SINGLE_PATIENT = gql`
@@ -64,5 +57,6 @@ export const QUERY_ALL_OPEN_VISITS = gql`
         status
         severity
         reason
+        room
       }
     }`

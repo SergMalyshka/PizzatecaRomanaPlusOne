@@ -18,12 +18,14 @@ type Patient {
     severity: String!
     reason: String!
     patient: Patient
+    room: String
 
   }
 
   type Doctor {
     username: String!
   }
+
 
   # required for login
   type Auth {
@@ -36,7 +38,7 @@ type Patient {
     patients: [Patient]!
     # should allow us to check the logged in doctor when queried
     me: Doctor
-    # return All Visits
+    # return All Waiting Visits
     openVisits: [Visit]!
     # get one visit
     getOneVisit(_id:ID!):Visit
@@ -52,7 +54,7 @@ type Patient {
     # get info for one patient
     getPatient(firstName: String!, lastName: String!, dob: String!): Patient!
     # add a visit
-    addVisit(date: String!, notes: [String], status: String!, severity: String!, reason: String!, patient: ID!): Visit!
+    addVisit(date: String!, notes: [String], status: String!, severity: String!, reason: String!, patient: ID!, room: String): Visit!
     # update visit notes
     updateVisit(_id:ID!, notes:[String]!): Visit!
   }
