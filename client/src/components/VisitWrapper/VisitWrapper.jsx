@@ -43,8 +43,8 @@ export const VisitWrapper = ({ visits }) => {
           <VisitList visits={waitingData} />
         </DndContext>
       </div>
-      <div className="col-1">
-        <button>Next</button>
+      <div className={`col-1 ${style.next} ${style.buttonDiv}`}>
+        <button className={`btn ${style.button}`}>Next</button>
       </div>
       <div className="col-6">
         <h2 className={style.bigText}>Being Seen</h2>

@@ -5,3 +5,19 @@
 .bigText, .hr {
     color: #47A8BD
 }
+
+.next {
+    height: 100px
+}
+
+.buttonDiv {
+    margin-top: 150px;
+}
+
+.button {
+    background-color: #47A8BD;
+}
+
+.button:hover {
+    background-color: #06cbf7;
+}
