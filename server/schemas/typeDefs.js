@@ -11,7 +11,7 @@ type Patient {
   }
 
   type Visit {
-    _id: ID
+    id: ID
     date: String!
     notes: [String]
     status: String!

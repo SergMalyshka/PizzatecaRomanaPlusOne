@@ -58,10 +58,11 @@ query Query {
 export const QUERY_ALL_OPEN_VISITS = gql`
     query Query {
       openVisits {
-        _id
+        id
         date
         notes
         status
         severity
+        reason
       }
     }`
