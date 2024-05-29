@@ -64,6 +64,12 @@ const resolvers = {
       await Patient.findOneAndUpdate({_id: patient}, {$addToSet: {visits: newVisit.id}})
       return newVisit;
     },
+    
+    updateStatus: async(parent, {_id, status}) => {
+      const updVisit = await Visit.findOneAndUpdate({_id: _id},  {status: status})
+      return updVisit
+    },
+    
     updateVisit: async (parent, {_id, notes}) => {
       const stringNotes = notes.toString()
       const updVisit = await Visit.findOneAndUpdate

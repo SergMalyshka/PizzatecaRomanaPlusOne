@@ -49,14 +49,19 @@ query Query {
 }`
 
 export const QUERY_ALL_OPEN_VISITS = gql`
-    query Query {
-      openVisits {
-        id
-        date
-        notes
-        status
-        severity
-        reason
-        room
-      }
-    }`
+query OpenVisits {
+  openVisits {
+    id
+    date
+    notes
+    status
+    severity
+    reason
+    patient {
+      firstName
+      lastName
+      dob
+    }
+    room
+  }
+}`

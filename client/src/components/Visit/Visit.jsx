@@ -11,7 +11,6 @@ export const Visit = ({ id, reason, severity }) => {
         transition,
         transform: CSS.Transform.toString(transform),
     };
-    const styling = severity
 
     return (
         <div

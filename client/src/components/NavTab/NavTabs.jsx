@@ -14,7 +14,7 @@ function NavTabs() {
           to="/"
           className={currentPage === '/' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
         >
-          Tab1
+          Home
         </Link>
       </li>
       <li className="nav-item">
@@ -51,7 +51,7 @@ function NavTabs() {
         </Link>
       </li>
       {Auth.loggedIn() ? (
-      <button className={`btn btn-warning ${style.button}`} onClick={Auth.logout}>Logout</button>
+      <button className={`${style.button}`} onClick={Auth.logout}>Logout</button>
       ) : (
         
       <li className="nav-item">

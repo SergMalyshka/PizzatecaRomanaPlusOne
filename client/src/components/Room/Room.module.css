@@ -1,0 +1,65 @@
+
+.top {
+    font-size: large;
+    color: #0E1116;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  .reason {
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #0E1116
+  }
+
+  .button {
+    align-items: center;
+    background-color: #313638;
+    border: 1px solid transparent;
+    height: 25px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  .button:hover,
+  .button:focus {
+    background-color: #879297;
+  }
+  
+  .button:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+  }
+
+  .row {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  .buttons {
+    --bs-gutter-x: 0!important;
+  }
+
+  .discharge {
+    background-color: #313638;
+  }
+
+  .border {
+    border: black;
+  }

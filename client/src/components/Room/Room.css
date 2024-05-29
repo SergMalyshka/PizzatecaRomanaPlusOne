@@ -1,0 +1,11 @@
+.Critical {
+    background-color: #F06A6A;
+}
+
+.Semi-Urgent {
+    background-color: #FFFD99;
+}
+
+.Non-Urgent {
+    background-color: #4EF979;
+}
