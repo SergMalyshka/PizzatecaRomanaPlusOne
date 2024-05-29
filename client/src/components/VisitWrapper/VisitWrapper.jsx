@@ -3,14 +3,14 @@ import { DndContext, closestCorners } from "@dnd-kit/core"
 import { arrayMove } from "@dnd-kit/sortable";
 import { VisitList } from "../VisitList/VisitList";
 import style from "./VisitWrapper.module.css"
-import { useQuery } from "@apollo/client";
-
+import { useMutation } from "@apollo/client";
+import { UPDATE_STATUS } from "../../utils/mutations";
 
 export const VisitWrapper = ({ visits }) => {
 
+  const [updateStatus] = useMutation(UPDATE_STATUS);
   const waiting = []
   const beingSeen = []
-
   for (const visit of visits) {
     if (visit.status === "Waiting") {
       waiting.push(visit)
@@ -20,8 +20,9 @@ export const VisitWrapper = ({ visits }) => {
   }
 
   const [waitingData, setWaitingData] = useState(waiting)
-  const getVisitPos = id => waitingData.findIndex(visit => visit.id === id)
+  const [seenData, setSeenData] = useState(beingSeen)
 
+  const getVisitPos = id => waitingData.findIndex(visit => visit.id === id)
   const handleDragEnd = event => {
     const { active, over } = event
     if (active.id === over.id) return
@@ -33,6 +34,20 @@ export const VisitWrapper = ({ visits }) => {
     })
   }
 
+  const setSeen = async () => {
+    const visit = waitingData[0]
+    try {
+      const updvisit = await updateStatus({variables: {id: visit.id, status: "Being Seen"}})
+    } catch (err) {
+      console.log(err)
+    }
+    setWaitingData((waitingData) => {
+      return waitingData.slice(1)
+    })
+    setSeenData((seenData) => {
+      return seenData.concat([visit])
+    })
+  }
 
   return (
     <div className="row align-items-start">
@@ -44,15 +59,14 @@ export const VisitWrapper = ({ visits }) => {
         </DndContext>
       </div>
       <div className={`col-1 ${style.next} ${style.buttonDiv}`}>
-        <button className={`btn ${style.button}`}>Next</button>
+        <button onClick={setSeen} className={`btn ${style.button}`}>Next</button>
       </div>
       <div className="col-6">
         <h2 className={style.bigText}>Being Seen</h2>
         <hr className={style.hr}></hr>
-        <VisitList visits={beingSeen} />
+        <VisitList visits={seenData} />
+        
       </div>
     </div>
-
   )
-
 }

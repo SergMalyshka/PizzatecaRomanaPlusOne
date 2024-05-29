@@ -92,3 +92,11 @@ mutation UpdateVisit($id: ID!, $notes: [String]!) {
   }
 }
 `
+
+export const UPDATE_STATUS = gql`
+mutation UpdateStatus($id: ID!, $status: String!) {
+  updateStatus(_id: $id, status: $status) {
+    status
+  }
+}
+`

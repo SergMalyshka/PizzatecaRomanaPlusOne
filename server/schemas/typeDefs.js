@@ -57,6 +57,8 @@ type Patient {
     addVisit(date: String!, notes: [String], status: String!, severity: String!, reason: String!, patient: ID!, room: String): Visit!
     # update visit notes
     updateVisit(_id:ID!, notes:[String]!): Visit!
+    # update visit status
+    updateStatus(_id:ID!, status: String!): Visit!
   }
 `;
 

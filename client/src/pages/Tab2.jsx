@@ -26,7 +26,7 @@ const VisitForm = () => {
   };
 
 //  const SingleVisit = () => {
-   const visitId = "6655eca82c2722701a99e6e2";
+   const visitId = "6656832f2a3f9760d31c8bac";
    // const { visitId } = useParams();
    const { loading, error, data } = useQuery(QUERY_SINGLE_VISIT,{
      variables: {id: visitId}
