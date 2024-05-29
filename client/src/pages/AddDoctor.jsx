@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_DOCTOR } from "../utils/mutations";
 import Auth from "../utils/auth"
+import LoginPrompt from "../components/LoginPrompt/LoginPrompt";
 
 
 const AddDoctor = () => {
@@ -91,7 +92,7 @@ const AddDoctor = () => {
           </div>
         </div>
       ) : (
-        <p>You must <Link to="/DoctorLogin">login</Link> before creating new login credentials</p>
+        <LoginPrompt />
       )}
     </div>
   );

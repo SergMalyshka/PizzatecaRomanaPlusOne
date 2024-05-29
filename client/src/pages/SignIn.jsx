@@ -5,6 +5,8 @@ import { ADD_PATIENT, PATIENT_LOOKUP, ADD_VISIT } from "../utils/mutations";
 import { getDateNow } from "../utils/date";
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
+import LoginPrompt from "../components/LoginPrompt/LoginPrompt";
+
 
 import { useMutation } from "@apollo/client";
 
@@ -302,10 +304,7 @@ export default function SignIn() {
           )}
         </div>
       ) : (
-        <p>
-          Please <Link to="/DoctorLogin">Login</Link> here before signing in
-          patients
-        </p>
+        <LoginPrompt />
       )}
     </div>
   );

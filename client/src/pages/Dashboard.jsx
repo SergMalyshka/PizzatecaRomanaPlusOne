@@ -6,7 +6,7 @@ import style from './Dashboard.module.css'
 import { useState } from "react";
 import { arrayMove } from "@dnd-kit/sortable";
 import { VisitWrapper } from "../components/VisitWrapper/VisitWrapper";
-
+import LoginPrompt from "../components/LoginPrompt/LoginPrompt";
 
 export default function test() {
 
@@ -24,7 +24,7 @@ export default function test() {
           )}
         </div>
       ) : (
-        <p>You must log in</p>
+        <LoginPrompt />
       )}
     </div>
   )
