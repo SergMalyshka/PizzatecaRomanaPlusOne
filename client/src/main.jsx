@@ -23,9 +23,6 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />
       }, {
-        path: '/Tab2',
-        element: <Tab2 />
-      }, {
         path: '/DoctorLogin',
         element: <DoctorLogin />
       }, {
@@ -37,6 +34,9 @@ const router = createBrowserRouter([
       }, {
         path: '/AddDoctor',
         element: <AddDoctor />
+      },
+      {path: '/visits/:visitId',
+        element: <Tab2/>
       },
     ]
   },

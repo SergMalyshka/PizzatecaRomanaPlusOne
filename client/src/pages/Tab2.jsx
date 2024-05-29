@@ -7,6 +7,7 @@ import PatientDetails from "../components/PatientDetails"
 import PreviousNotes from '../components/PreviousNotes';
 
 const VisitForm = () => {
+
   const [notes, setNotes] = useState('');
   const [updateVisit] = useMutation(UPDATE_VISIT);
 
@@ -26,8 +27,7 @@ const VisitForm = () => {
   };
 
 //  const SingleVisit = () => {
-   const visitId = "6656a850188bd2104fd33d0b";
-   // const { visitId } = useParams();
+   const { visitId } = useParams();
    const { loading, error, data } = useQuery(QUERY_SINGLE_VISIT,{
      variables: {id: visitId}
     });
