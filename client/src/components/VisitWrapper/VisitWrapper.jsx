@@ -52,7 +52,7 @@ export const VisitWrapper = ({ visits }) => {
   return (
     <div className="row align-items-start">
       <div className="col-5">
-        <h2 className={style.bigText}>Waiting</h2>
+        <h2 className={style.bigText}>{`Waiting: ${waitingData.length}`}</h2>
         <hr className={style.hr}></hr>
         <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
           <VisitList visits={waitingData} />
@@ -62,10 +62,10 @@ export const VisitWrapper = ({ visits }) => {
         <button onClick={setSeen} className={`btn ${style.button}`}>Next</button>
       </div>
       <div className="col-6">
-        <h2 className={style.bigText}>Being Seen</h2>
+        <h2 className={style.bigText}>{`Being Seen: ${seenData.length}/8`}</h2>
         <hr className={style.hr}></hr>
         <VisitList visits={seenData} />
-        
+
       </div>
     </div>
   )
