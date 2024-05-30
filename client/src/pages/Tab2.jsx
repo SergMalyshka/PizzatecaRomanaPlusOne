@@ -1,5 +1,3 @@
-// VisitForm.jsx
-
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
@@ -7,7 +5,7 @@ import { UPDATE_VISIT } from '../utils/mutations';
 import { QUERY_SINGLE_VISIT } from '../utils/queries';
 import PatientDetails from "../components/PatientDetails";
 import PreviousNotes from '../components/PreviousNotes';
-import styles from './Tab2.module.css'; // Import CSS module
+import styles from './Tab2.module.css'; 
 
 const VisitForm = () => {
   const [notes, setNotes] = useState('');
