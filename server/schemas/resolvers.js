@@ -2,6 +2,7 @@
 const Doctor = require('../models/Doctor');
 const Patient = require('../models/Patient');
 const Visit = require('../models/Visit')
+const Rooms = require('../models/Rooms')
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -24,6 +25,7 @@ const resolvers = {
       const getVisit = await Visit.findOne({_id:_id}).populate('patient')
       return getVisit
     },
+    getRooms: async () =>  Rooms.find
   },
 
   Mutation: {
@@ -75,6 +77,12 @@ const resolvers = {
       const updVisit = await Visit.findOneAndUpdate
       ({_id:_id}, {$addToSet: {notes: stringNotes }})
       return updVisit;
+    },
+
+    updateRooms: async (parent, {_id, available}) => {
+      const updRooms = await Rooms.findOneAndUpdate
+      ({_id:_id}, {$addToSet: {available: available}})
+      return updRooms;
     }
   },
 
