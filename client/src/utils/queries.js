@@ -68,3 +68,12 @@ query OpenVisits {
     room
   }
 }`
+
+export const QUERY_GET_ROOMS = gql`
+query GetRooms($id: ID!) {
+  getRooms(_id: $id) {
+    _id
+    available
+  }
+}
+`
