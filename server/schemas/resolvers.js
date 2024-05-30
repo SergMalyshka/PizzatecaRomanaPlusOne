@@ -25,7 +25,8 @@ const resolvers = {
       const getVisit = await Visit.findOne({_id:_id}).populate('patient')
       return getVisit
     },
-    getRooms: async () =>  Rooms.find
+    getRooms: async (parent, {_id}) => {
+      return Rooms.findOne({ _id: _id})}
   },
 
   Mutation: {
@@ -81,7 +82,7 @@ const resolvers = {
 
     updateRooms: async (parent, {_id, available}) => {
       const updRooms = await Rooms.findOneAndUpdate
-      ({_id:_id}, {$addToSet: {available: available}})
+      ({_id:_id}, {available: available})
       return updRooms;
     }
   },
