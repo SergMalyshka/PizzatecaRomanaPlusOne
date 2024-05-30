@@ -66,25 +66,12 @@ export const VisitWrapper = ({ visits }) => {
 
   return (
     <div className="row align-items-start">
-      <div className="col-5">
+      <div className="col-6">
         <h2 className={style.bigText}>{`Waiting: ${waitingData.length}`}</h2>
         <hr className={style.hr}></hr>
         <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-          <VisitList visits={waitingData} />
+          <VisitList visits={waitingData} setSeen={setSeen} error={error} />
         </DndContext>
-      </div>
-      <div className={`col-1 ${style.next} ${style.buttonDiv}`}>
-        <button onClick={setSeen} className={style.buttonPushable} role="button">
-          <span className={style.buttonShadow}></span>
-          <span className={style.buttonEdge}></span>
-          <span className={`${style.buttonFront} ${style.text}`}>
-            Assign Patient
-          </span>
-        </button>
-        {/* <button onClick={setSeen} className={` btn ${style.button} button`}>Next</button> */}
-        {error && (
-          <h4 className={style.error}>{error}</h4>
-        )}
       </div>
       <div className="col-6">
         <h2 className={style.bigText}>{`Being Seen: ${seenData.length}/8`}</h2>

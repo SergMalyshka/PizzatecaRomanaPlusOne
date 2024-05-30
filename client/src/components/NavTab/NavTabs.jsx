@@ -9,7 +9,7 @@ function NavTabs() {
 
   return (
     <ul className={`nav nav-item ${style.navigation}`}>
-      <li className="nav-item">
+      <li className={`nav nav-item ${style.navItem}`}>
         <Link
           to="/"
           className={currentPage === '/' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
@@ -18,7 +18,7 @@ function NavTabs() {
         </Link>
       </li>
 
-      <li className="nav-item">
+      <li className={`nav nav-item ${style.navItem}`}>
         <Link
           to="/Dashboard"
           className={currentPage === '/Dashboard' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
@@ -26,7 +26,7 @@ function NavTabs() {
           Dashboard
         </Link>
       </li>
-      <li className="nav-item">
+      <li className={`nav nav-item ${style.navItem}`}>
         <Link
           to="/SignIn"
           className={currentPage === '/SignIn' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
@@ -34,7 +34,7 @@ function NavTabs() {
           Patient Sign-In
         </Link>
         </li>
-        <li className="nav-item">
+        <li className={`nav nav-item ${style.navItem}`}>
         <Link
           to="/AddDoctor"
           className={currentPage === '/AddDoctor' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
@@ -46,7 +46,7 @@ function NavTabs() {
       <button className={`${style.button}`} onClick={Auth.logout}>Logout</button>
       ) : (
         
-      <li className="nav-item">
+      <li className={`nav nav-item ${style.navItem}`}>
         <Link
           to="/DoctorLogin"
           className={currentPage === '/DoctorLogin' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
