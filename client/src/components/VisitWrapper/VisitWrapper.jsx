@@ -46,7 +46,7 @@ export const VisitWrapper = ({ visits }) => {
       if(seenData.length < 8) {
         const visit = waitingData[0]
         try {
-          const updvisit = await updateStatus({ variables: { id: visit.id, status: "Being Seen" } })
+          await updateStatus({ variables: { id: visit.id, status: "Being Seen" } })
         } catch (err) {
           console.log(err)
         }

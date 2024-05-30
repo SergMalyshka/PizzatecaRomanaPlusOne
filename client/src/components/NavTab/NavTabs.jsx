@@ -17,14 +17,6 @@ function NavTabs() {
           Home
         </Link>
       </li>
-      <li className="nav-item">
-        <Link
-          to="/Tab2"
-          className={currentPage === '/Tab2' ? `${style.activeTab} nav-link` : `${style.inactive} nav-link`}
-        >
-          Tab2
-        </Link>
-      </li>
 
       <li className="nav-item">
         <Link

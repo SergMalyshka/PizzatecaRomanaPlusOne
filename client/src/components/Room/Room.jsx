@@ -4,6 +4,7 @@ import ageCalculator from "../../utils/ageCalculator";
 import style from "./Room.module.css"
 import { UPDATE_STATUS } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
+import { Link } from 'react-router-dom';
 
 
 export const Room = ({ visit, seenData, setSeenDataFn }) => {
@@ -28,7 +29,7 @@ export const Room = ({ visit, seenData, setSeenDataFn }) => {
             </div>
             <div className={`row ${style.buttons}`}>
                 <div className="col-6">
-                    <a href="#" className={`${style.button}`}>Go somewhere</a>
+                    <Link to={`/visits/${visit.id}`} className={`${style.button}`}>Go somewhere</Link>
                 </div>
                 <div className="col-6">
                     <button onClick={update} className={`${style.button} ${style.discharge}`}>Discharge</button>
