@@ -1,22 +1,37 @@
-.patient-details {
-    background-color: #f9f9f9;
-    padding: 20px;
+.patient-details-container {
+    background-color: #47a8bd;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 25%; /* Adjust the width as needed */
+    float: left; /* Align to the left */
+    color: #ffffff; /* Change text color to white */
   }
   
-  .patient-details p {
+  .patient-details-container p {
     margin: 5px 0;
     font-size: 16px;
+    color: #ffffff;
+  }
+  
+  .patient-details-container hr {
+    border: none;
+    border-top: 1px solid #dddddd;
+    margin: 10px 0;
   }
   
   .patient-name {
+    
+    font-size: 40px; /* Adjust font size as needed */
     font-weight: bold;
-    color: #333;
+    color: #1eccd5; /* Adjust text color as needed */
+    margin-bottom: 20px; /* Add margin to separate from patient details */
   }
   
-  .patient-details hr {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 10px 0;
+  .notes-container {
+    width: 50%; /* Adjust the width as needed */
+    float: right; /* Align to the right */
   }
+ 
+  

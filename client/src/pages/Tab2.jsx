@@ -1,3 +1,5 @@
+// VisitForm.jsx
+
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
@@ -5,6 +7,7 @@ import { UPDATE_VISIT } from '../utils/mutations';
 import { QUERY_SINGLE_VISIT } from '../utils/queries';
 import PatientDetails from "../components/PatientDetails";
 import PreviousNotes from '../components/PreviousNotes';
+import styles from './Tab2.module.css'; // Import CSS module
 
 const VisitForm = () => {
   const [notes, setNotes] = useState('');
@@ -29,7 +32,7 @@ const VisitForm = () => {
     variables: { id: visitId } // Use the visitId from useParams
   });
 
-console.log(data)
+  console.log(data)
 
   if (loading) {
     return <div>Loading...</div>;
@@ -41,10 +44,11 @@ console.log(data)
 
   const visitData = data.getOneVisit;
   // const patientData = visitData.patient;
-console.log(visitData)
+  console.log(visitData)
+  
   return (
     <>
-      <h2>Visit Details</h2>
+      <h2></h2>
       <form className="flex-row justify-center justify-space-between-md align-center"
         onSubmit={handleFormSubmit}>
         <PatientDetails data={visitData} /> {/* Pass patient data to PatientDetails */}
@@ -62,7 +66,7 @@ console.log(visitData)
           />
         </div>
         <div className="col-12">
-          <button className="btn btn-info btn-block text-end" type="submit">
+          <button className={`${styles.btn} btn-info btn-block text-end`} type="submit">
             Save Note
           </button>
         </div>

@@ -1,0 +1,15 @@
+/* Tab2.module.css */
+
+.btn {
+    background-color: #47a8bd; /* Default button color */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add transition effect */
+  }
+  
+  .btn:hover {
+    background-color: #062428; /* Change color on hover */
+  }
