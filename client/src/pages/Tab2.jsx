@@ -36,7 +36,6 @@ const VisitForm = () => {
     if(loading) {
       return <div>Loading...</div>;
       }
-    console.log("🚀 ~ VisitForm ~ data:", data.getOneVisit)
 
 
   return (
