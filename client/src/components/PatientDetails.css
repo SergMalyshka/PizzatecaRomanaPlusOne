@@ -1,22 +1,35 @@
-.patient-details {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+.patient-details-container {
+  background-color: #47a8bd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 25%; 
+  float: left; 
+  color: #ffffff; 
+}
+
+.patient-details-container p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.patient-details-container hr {
+  border: none;
+  border-top: 1px solid #dddddd;
+  margin: 10px 0;
+}
+
+.patient-name {
   
-  .patient-details p {
-    margin: 5px 0;
-    font-size: 16px;
-  }
-  
-  .patient-name {
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .patient-details hr {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 10px 0;
-  }
+  font-size: 40px; 
+  font-weight: bold;
+  color: #1eccd5; 
+  margin-bottom: 20px; 
+}
+
+.notes-container {
+  width: 50%; 
+  float: right; 
+}
