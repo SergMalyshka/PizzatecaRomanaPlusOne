@@ -41,7 +41,7 @@ const AddDoctor = () => {
 
   return (
     <div>
-      {!Auth.loggedIn() ? (
+      {Auth.loggedIn() ? (
         <div>
           <p className={`${style.option}`}>Add new login credentials</p>
           <p></p>
