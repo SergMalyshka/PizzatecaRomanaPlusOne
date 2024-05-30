@@ -11,6 +11,11 @@ const VisitForm = () => {
   const [notes, setNotes] = useState('');
   const [updateVisit] = useMutation(UPDATE_VISIT);
 
+  const { visitId } = useParams(); // Get the visitId from the URL parameters
+  const { loading, error, data, refetch } = useQuery(QUERY_SINGLE_VISIT, {
+    variables: { id: visitId } // Use the visitId from useParams
+  });
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -18,19 +23,12 @@ const VisitForm = () => {
         variables: { id: visitId, notes },
       });
       console.log("🚀 ~ handleFormSubmit ~ data:", data);
-      // Optionally, redirect or show a success message here
+      refetch(); 
+      setNotes('');
     } catch (err) {
       console.error(err);
     }
   };
-
-  const { visitId } = useParams(); // Get the visitId from the URL parameters
-  console.log(visitId)
-  const { loading, error, data } = useQuery(QUERY_SINGLE_VISIT, {
-    variables: { id: visitId } // Use the visitId from useParams
-  });
-
-  console.log(data)
 
   if (loading) {
     return <div>Loading...</div>;
@@ -41,12 +39,11 @@ const VisitForm = () => {
   }
 
   const visitData = data.getOneVisit;
-  // const patientData = visitData.patient;
-  console.log(visitData)
-  
+  console.log(visitData);
+
   return (
     <>
-      <h2></h2>
+      <h2>Visit Details</h2>
       <form className="flex-row justify-center justify-space-between-md align-center"
         onSubmit={handleFormSubmit}>
         <PatientDetails data={visitData} /> {/* Pass patient data to PatientDetails */}
