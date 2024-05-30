@@ -1,3 +1,4 @@
 const Patient = require("./Patient");
+const Rooms = require("./Rooms")
 
-module.exports = {Patient}
+module.exports = {Patient, Rooms}
