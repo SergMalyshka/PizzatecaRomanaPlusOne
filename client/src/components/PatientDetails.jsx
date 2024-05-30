@@ -9,9 +9,9 @@ const PatientDetails = ({ data }) => {
       <div className="patient-details-container">
         <p>Patient DOB: {data.patient.dob}</p>
         <hr />
-        <p>Allergies: {data.allergies}</p>
+        <p>Allergies: {data.patient.allergies}</p>
         <hr />
-        <p>Medications: {data.medications}</p>
+        <p>Medications: {data.patient.medications}</p>
         <hr />
         <p>Visit Reason: {data.reason}</p>
       </div>
