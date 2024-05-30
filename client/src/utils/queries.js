@@ -10,6 +10,9 @@ query GetOneVisit($id: ID!) {
     severity
     reason
     patient {
+      medicalHistory
+      allergies
+      medications
     firstName
     lastName  
     dob
