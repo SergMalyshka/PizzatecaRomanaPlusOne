@@ -26,8 +26,8 @@ This app runs remotely. No installation is needed.
 
 ## Usage
 
-This app will run at www ...
-The main tab will bring up blahblahblah. Navigate to the bluhbluh tab to bluhbluh. Additionally, the blehbleh tab will blehblehbleh.
+This app will run at https://pizzatecaromanaplusone-1.onrender.com/
+After the . Navigate to the bluhbluh tab to bluhbluh. Additionally, the blehbleh tab will blehblehbleh.
 
 SCREENSHOT(S) GO HERE YO!
 
