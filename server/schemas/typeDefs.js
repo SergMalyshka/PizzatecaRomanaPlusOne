@@ -26,6 +26,10 @@ type Patient {
     username: String!
   }
 
+  type Rooms {
+    _id: ID
+    available: Int!
+  }
 
   # required for login
   type Auth {
@@ -42,6 +46,8 @@ type Patient {
     openVisits: [Visit]!
     # get one visit
     getOneVisit(_id:ID!):Visit
+    #get rooms amount
+    getRooms: Rooms
   }
 
   type Mutation {
@@ -59,6 +65,8 @@ type Patient {
     updateVisit(_id:ID!, notes:[String]!): Visit!
     # update visit status
     updateStatus(_id:ID!, status: String!): Visit!
+    # update available rooms
+    updateRooms(available:Int): Rooms
   }
 `;
 
