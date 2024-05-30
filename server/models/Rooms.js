@@ -4,7 +4,6 @@ const roomSchema = new Schema(
   {
     available: {
       type: Number,
-      default: 8,
       min: 0,
     },
   },
