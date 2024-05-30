@@ -4,7 +4,9 @@ const PatientDetails = ({data}) => {
 <div className="">
   <p>Patient name: {fullName}</p>
   <p>Patient DOB : {data.patient.dob}</p>
+  <p>Allergies: {data.allergies}</p>
   <p>Visit reason: {data.reason}</p>
+  <p>Medications: {data.medications}</p>
 </div>
 )
 }
