@@ -1,4 +1,5 @@
 import React from "react";
+import styleList from "./Visit.module.css"
 import "./Visit.css"
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities"
@@ -20,7 +21,7 @@ export const Visit = ({ id, reason, severity }) => {
           {...attributes}
           {...listeners}
         >
-          {reason}
+          <h3 className={styleList.reason}>{reason}</h3>
         </div>
       );
 }

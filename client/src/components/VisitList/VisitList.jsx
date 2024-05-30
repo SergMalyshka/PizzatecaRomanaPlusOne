@@ -14,7 +14,6 @@ export const VisitList = ({ visits }) => {
                     <Visit id={visit.id} severity={visit.severity} reason={visit.reason} key={visit.id}/>
                 ))}
             </SortableContext>
-
         </div>
     )
 }

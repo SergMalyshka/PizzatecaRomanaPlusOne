@@ -20,10 +20,10 @@ export const VisitWrapper = ({ visits }) => {
     }
   }
 
- function setSeenDataFn(data) {
-  setSeenData(data)
-  setError("")
- }
+  function setSeenDataFn(data) {
+    setSeenData(data)
+    setError("")
+  }
 
   const [waitingData, setWaitingData] = useState(waiting)
   const [seenData, setSeenData] = useState(beingSeen)
@@ -43,7 +43,7 @@ export const VisitWrapper = ({ visits }) => {
 
   const setSeen = async () => {
     if (waitingData.length > 0) {
-      if(seenData.length < 8) {
+      if (seenData.length < 8) {
         const visit = waitingData[0]
         try {
           await updateStatus({ variables: { id: visit.id, status: "Being Seen" } })
@@ -59,6 +59,8 @@ export const VisitWrapper = ({ visits }) => {
       } else {
         setError("No Free rooms")
       }
+    } else {
+      setError("No Patient's in the waiting room")
     }
   }
 
@@ -72,9 +74,16 @@ export const VisitWrapper = ({ visits }) => {
         </DndContext>
       </div>
       <div className={`col-1 ${style.next} ${style.buttonDiv}`}>
-        <button onClick={setSeen} className={` btn ${style.button}`}>Next</button>
+        <button onClick={setSeen} className={style.buttonPushable} role="button">
+          <span className={style.buttonShadow}></span>
+          <span className={style.buttonEdge}></span>
+          <span className={`${style.buttonFront} ${style.text}`}>
+            Assign Patient
+          </span>
+        </button>
+        {/* <button onClick={setSeen} className={` btn ${style.button} button`}>Next</button> */}
         {error && (
-          <h4>{error}</h4>
+          <h4 className={style.error}>{error}</h4>
         )}
       </div>
       <div className="col-6">
