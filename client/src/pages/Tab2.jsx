@@ -11,9 +11,9 @@ const VisitForm = () => {
   const [notes, setNotes] = useState('');
   const [updateVisit] = useMutation(UPDATE_VISIT);
 
-  const { visitId } = useParams(); // Get the visitId from the URL parameters
+  const { visitId } = useParams(); 
   const { loading, error, data, refetch } = useQuery(QUERY_SINGLE_VISIT, {
-    variables: { id: visitId } // Use the visitId from useParams
+    variables: { id: visitId } 
   });
 
   const handleFormSubmit = async (event) => {
@@ -24,7 +24,7 @@ const VisitForm = () => {
       });
       console.log("🚀 ~ handleFormSubmit ~ data:", data);
       refetch(); 
-      setNotes('');
+      setNotes(''); 
     } catch (err) {
       console.error(err);
     }
