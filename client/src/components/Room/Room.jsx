@@ -29,7 +29,7 @@ export const Room = ({ visit, seenData, setSeenDataFn }) => {
             </div>
             <div className={`row ${style.buttons}`}>
                 <div className="col-6">
-                    <Link to={`/visits/${visit.id}`} className={`${style.button}`}>Go somewhere</Link>
+                    <Link to={`/visits/${visit.id}`} className={`${style.button}`}>Visit Details</Link>
                 </div>
                 <div className="col-6">
                     <button onClick={update} className={`${style.button} ${style.discharge}`}>Discharge</button>
