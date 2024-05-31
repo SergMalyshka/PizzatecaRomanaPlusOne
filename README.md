@@ -24,10 +24,10 @@ Run `npm i` in this app's root directory. Then run `node run develop`
 ##  ⭐ Usage ⭐
 Medical professionals, including doctors and nurses, will log in to access and review patient information and visit details. Patients will be triaged and directed to various rooms according to the severity of their conditions. After receiving the necessary care, patients will be discharged accordingly. Here are some screenshot to show to usage of application:
 
-![Site Screenshot](./images/Home%20Page.PNG)
-![Site Screenshot](./images/Patient%20Sign%20In.PNG)
-![Site Screenshot](./images/Visit%20Details.PNG)
-![Site Screenshot](./images/Wait%20Room.PNG)
+![Site Screenshot](./client/public/Home%20Page.PNG)
+![Site Screenshot](./client/public/Patient%20Sign%20In.PNG)
+![Site Screenshot](./client/public/Visit%20Details.PNG)
+![Site Screenshot](./client/public/Wait%20Room.PNG)
 
 
 ## 📜 MIT License 📜
