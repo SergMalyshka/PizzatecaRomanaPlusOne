@@ -70,8 +70,8 @@ query OpenVisits {
 }`
 
 export const QUERY_GET_ROOMS = gql`
-query GetRooms($id: ID!) {
-  getRooms(_id: $id) {
+query GetRooms {
+  getRooms {
     _id
     available
   }
