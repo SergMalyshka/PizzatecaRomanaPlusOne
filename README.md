@@ -1,7 +1,5 @@
 # Romana Plus One
 
-![License:MIT](https://img.shields.io/badge/License-MIT-blue)
-
 ## 📝  Description 📝 
 
 This application is specifically designed for use in medical settings, providing comprehensive tools for patient management as well as efficient organization and allocation of doctor consultation rooms. It facilitates seamless tracking of patient records and medical histories, while also ensuring that the scheduling and utilization of doctor rooms are optimized to enhance the overall efficiency of the healthcare facility. With its user-friendly interface and robust features, this app aims to improve the workflow within medical environments, thereby contributing to better patient care and operational effectiveness.
@@ -12,26 +10,28 @@ This application is specifically designed for use in medical settings, providing
 
 -[Usage](#usage)
 
--[Credits](#credits)
-
 -[License](#license)
+
+-[Credits](#credits)
 
 -[Tests](#tests)
 
 -[Questions](#questions)
 
 ## 🔧 Installation 🔧
-
 Run `npm i` in this app's root directory. Then run `node run develop`
 
 ##  ⭐ Usage ⭐
+Medical professionals, including doctors and nurses, will log in to access and review patient information and visit details. Patients will be triaged and directed to various rooms according to the severity of their conditions. After receiving the necessary care, patients will be discharged accordingly. Here are some screenshot to show to usage of application:
 
-This app will run at https://pizzatecaromanaplusone-1.onrender.com/
-After the . Navigate to the bluhbluh tab to bluhbluh. Additionally, the blehbleh tab will blehblehbleh.
+![Site Screenshot](./client/public/Home%20Page.PNG)
+![Site Screenshot](./client/public/Patient%20Sign%20In.PNG)
+![Site Screenshot](./client/public/Visit%20Details.PNG)
+![Site Screenshot](./client/public/Wait%20Room.PNG)
 
-SCREENSHOT(S) GO HERE YO!
 
 ## 📜 MIT License 📜
+![License:MIT](https://img.shields.io/badge/License-MIT-blue)
 Copyright (c) 2024
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -42,12 +42,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [View license](https://opensource.org/license/mit-0/)
 
 ##  📚 Credits 📚
+[SergMalyshka](https://github.com/SergMalyshka), [Adpileggi](https://github.com/Adpileggi), [Carioto](https://github.com/Carioto), and [Jaystarz360](https://github.com/Jaystarz360)
 
-Sergei Malyshka, Anthony Pileggo, David Carioto and Joshua Cherry
 
 ##  📚 Tests 📚
 
-Seed data in included with the build
+[Check out the Repository!](https://github.com/SergMalyshka/PizzatecaRomanaPlusOne)
+
 
 ## 🔧 Technologies 🔧
 <p>
@@ -77,7 +78,6 @@ Seed data in included with the build
 </p> 
 
 ## 💡 Questions 💡
-
 Contact any contributor by email at the following:<br>
 adpileggi@gmail.com, sergmalyshka@gmail.com, dcarioto114@outlook.com, or Jaystarz360@gmail.com
 

@@ -26,7 +26,6 @@
 .button {
   align-items: center;
   min-height: 3vh;
-  max-height: 3vh;
   background-color: #F02D3A;
   border: 1px solid transparent;
   box-sizing: border-box;
@@ -36,7 +35,8 @@
   line-height: 1.25;
   margin-left: auto;
   margin-right: 0px;
-  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  padding-left: 1vh;
+  padding-right: 1vh;
   transition: all 250ms;
   width: auto;
 }

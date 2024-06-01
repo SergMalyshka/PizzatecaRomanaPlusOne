@@ -4,9 +4,9 @@
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
   padding: 20px;
   margin-bottom: 20px;
-  width: 25%; 
-  float: left; 
-  color: #ffffff; 
+  width: 25%;
+  float: left;
+  color: #ffffff;
 }
 
 .patient-details-container p {
@@ -22,14 +22,13 @@
 }
 
 .patient-name {
-  
-  font-size: 40px; 
+  font-size: 40px;
   font-weight: bold;
-  color: #1eccd5; 
-  margin-bottom: 20px; 
+  color: #1eccd5;
+  margin-bottom: 20px;
 }
 
 .notes-container {
-  width: 50%; 
-  float: right; 
+  width: 50%;
+  float: right;
 }
