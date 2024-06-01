@@ -47,7 +47,7 @@ type Patient {
     # get one visit
     getOneVisit(_id:ID!):Visit
     #get rooms amount
-    getRooms(_id:ID!):Rooms
+    getRooms:[Rooms]!
   }
 
   type Mutation {

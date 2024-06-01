@@ -6,6 +6,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { ADD_DOCTOR } from "../utils/mutations";
 import Auth from "../utils/auth"
 import LoginPrompt from "../components/LoginPrompt/LoginPrompt";
+import UpdateRooms from "../components/UpdateRooms/UpdateRooms";
 
 
 const AddDoctor = () => {
@@ -90,6 +91,10 @@ const AddDoctor = () => {
               )}
             </form>
           </div>
+              {/* update rooms avaibale div */}
+              <div>
+                <UpdateRooms/>
+              </div>
         </div>
       ) : (
         <LoginPrompt />

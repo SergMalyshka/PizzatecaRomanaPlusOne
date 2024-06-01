@@ -25,8 +25,7 @@ const resolvers = {
       const getVisit = await Visit.findOne({_id:_id}).populate('patient')
       return getVisit
     },
-    getRooms: async (parent, {_id}) => {
-      return Rooms.findOne({ _id: _id})}
+    getRooms: async () => {return Rooms.find()}
   },
 
   Mutation: {
