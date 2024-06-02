@@ -6,6 +6,8 @@ import { QUERY_SINGLE_VISIT } from '../utils/queries';
 import PatientDetails from "../components/PatientDetails";
 import PreviousNotes from '../components/PreviousNotes';
 import styles from './Tab2.module.css'; 
+import style from "../components/VisitList/VisitList.module.css"
+
 
 const VisitForm = () => {
   const [notes, setNotes] = useState('');
@@ -54,8 +56,10 @@ const VisitForm = () => {
             className="form-input"
             onChange={(event) => setNotes(event.target.value)}
           />
-          <button className={`${styles.btn} btn-info btn-block text-end`} type="submit">
-            Save Note
+          <button className={style.buttonPushable}>
+                <span className={`${style.buttonFront} ${style.btntxt}`}>
+                        Save Note
+                    </span>
           </button>
         </div>
         <div className="col-12 ">
