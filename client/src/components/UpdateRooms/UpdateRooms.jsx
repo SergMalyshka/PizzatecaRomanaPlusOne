@@ -9,7 +9,7 @@ const UpdateRooms = () => {
   const [formInfo, setFormState] = useState("");
   const { loading, data } = useQuery(QUERY_GET_ROOMS);
   const [updateRoom, { error }] = useMutation(UPDATE_ROOMS, {
-    refetchQueries: [QUERY_GET_ROOMS, "getRooms"],
+    refetchQueries: [QUERY_GET_ROOMS, "GetRooms"],
   });
 
   useEffect(() => {

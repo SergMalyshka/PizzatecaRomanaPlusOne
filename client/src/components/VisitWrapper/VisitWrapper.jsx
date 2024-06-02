@@ -37,7 +37,6 @@ export const VisitWrapper = ({ visits }) => {
       setAvailableRooms(data.getRooms[0].available);
     }
   }, [data, setAvailableRooms]);
-  console.log(availableRooms);
 
   const getVisitPos = (id) => waitingData.findIndex((visit) => visit.id === id);
   const handleDragEnd = (event) => {
