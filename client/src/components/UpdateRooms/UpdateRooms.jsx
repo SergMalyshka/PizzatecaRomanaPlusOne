@@ -6,26 +6,20 @@ import style from "./UpdateRoom.module.css";
 
 const UpdateRooms = () => {
   const [roomInfo, setRoomAmount] = useState({ id: "", available: "" });
-  const [formInfo, setFormState] = useState('')
+  const [formInfo, setFormState] = useState("");
   const { loading, data } = useQuery(QUERY_GET_ROOMS);
-  const [updateRoom, { error }] = useMutation(UPDATE_ROOMS, { 
-    refetchQueries: [
-      QUERY_GET_ROOMS,
-      'getRooms'
-    ]
+  const [updateRoom, { error }] = useMutation(UPDATE_ROOMS, {
+    refetchQueries: [QUERY_GET_ROOMS, "getRooms"],
   });
 
   useEffect(() => {
     if (data) {
       setRoomAmount({
         id: data.getRooms[0]._id,
-        available: data.getRooms[0].available
-      })
+        available: data.getRooms[0].available,
+      });
     }
-      }, [data, setRoomAmount])
-    
-  console.log(roomInfo)
-  
+  }, [data, setRoomAmount]);
 
   const handleChange = (event) => {
     const { value } = event.target;
@@ -53,7 +47,10 @@ const UpdateRooms = () => {
         <div>
           <div>
             <h2 className={style.option}>Update available rooms</h2>
-            <p>There are currently {roomInfo.available} urgent care rooms available</p>
+            <p>
+              There are currently {roomInfo.available} urgent care rooms
+              available
+            </p>
           </div>
           <div>
             <form
@@ -64,7 +61,7 @@ const UpdateRooms = () => {
                 value={formInfo}
                 name="number"
                 type="number"
-                placeholder='Update Avaiable Rooms'
+                placeholder="Update Avaiable Rooms"
                 className={`form-control ${style.formItem}`}
                 onChange={handleChange}
               />

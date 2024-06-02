@@ -53,8 +53,8 @@ export const VisitWrapper = ({ visits }) => {
 
   const setSeen = async () => {
     if (waitingData.length > 0) {
-      // update the "8"
-      if (seenData.length < {availableRooms}) {
+      // added availableRooms
+      if (seenData.length < availableRooms) {
         const visit = waitingData[0];
         try {
           await updateStatus({
@@ -96,9 +96,9 @@ export const VisitWrapper = ({ visits }) => {
             </DndContext>
           </div>
           <div className="col-6">
-            {/* update the 8 */}
             <h2
               className={style.bigText}
+              // added availableRooms
             >{`Being Seen: ${seenData.length}/${availableRooms}`}</h2>
             <hr className={style.hr}></hr>
             <RoomList seenData={seenData} setSeenDataFn={setSeenDataFn} />
