@@ -1,25 +1,5 @@
-.btn {
-  position: absolute;
-  background-color: #dbaf3f;
-  color: #ffffff;
-  padding: 7px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  right: 6.5%;
-  bottom: 59.6%;
-}
-
-.btn:hover {
-  background-color: #062428;
-}
-
 textarea {
   background-color: #e1eaec;
   width: 65%;
   margin-top: 8px;
-}
-.notebox {
-  position: relative;
 }
