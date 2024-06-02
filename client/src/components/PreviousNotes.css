@@ -1,0 +1,18 @@
+.pnotes {
+  font-size: 18px;
+  padding: 5px;
+}
+.notes-container {
+  width: 85%;
+  margin: auto;
+  margin-top: 45px;
+  background-color: #47a8bd;
+  color: #ffffff;
+}
+.no-notes-container {
+  width: 85%;
+  margin: auto;
+  margin-top: 25px;
+  background-color: #47a8bd;
+  color: #ffffff;
+}

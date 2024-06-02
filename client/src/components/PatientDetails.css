@@ -7,6 +7,7 @@
   width: 25%;
   float: left;
   color: #ffffff;
+  min-height: 261px;
 }
 
 .patient-details-container p {
@@ -26,9 +27,4 @@
   font-weight: bold;
   color: #1eccd5;
   margin-bottom: 20px;
-}
-
-.notes-container {
-  width: 50%;
-  float: right;
 }
