@@ -43,27 +43,22 @@ const VisitForm = () => {
 
   return (
     <>
-      <h2>Visit Details</h2>
       <form className="flex-row justify-center justify-space-between-md align-center"
         onSubmit={handleFormSubmit}>
         <PatientDetails data={visitData} /> {/* Pass patient data to PatientDetails */}
-        <hr />
-        <PreviousNotes data={visitData} />
-        <hr />
-        <div className="text-center">
+        <div className="text-center notebox">
           <textarea
-            rows='6'
-            cols='10'
+            rows='10'
             placeholder="Notes"
             value={notes}
-            className="form-input w-100"
+            className="form-input"
             onChange={(event) => setNotes(event.target.value)}
           />
-        </div>
-        <div className="col-12">
           <button className={`${styles.btn} btn-info btn-block text-end`} type="submit">
             Save Note
           </button>
+        </div>
+        <div className="col-12 ">
         </div>
         {error && (
           <div>
@@ -71,6 +66,7 @@ const VisitForm = () => {
           </div>
         )}
       </form>
+<PreviousNotes data={visitData} />
     </>
   );
 };
