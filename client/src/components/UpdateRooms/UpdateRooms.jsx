@@ -52,6 +52,7 @@ const UpdateRooms = () => {
       ) : (
         <div>
           <div>
+            <h2 className={style.option}>Update available rooms</h2>
             <p>There are currently {roomInfo.available} urgent care rooms available</p>
           </div>
           <div>

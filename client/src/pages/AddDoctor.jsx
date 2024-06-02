@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_DOCTOR } from "../utils/mutations";
-import Auth from "../utils/auth"
+import Auth from "../utils/auth";
 import LoginPrompt from "../components/LoginPrompt/LoginPrompt";
 import UpdateRooms from "../components/UpdateRooms/UpdateRooms";
-
 
 const AddDoctor = () => {
   const [formState, setFormState] = useState({ username: "", password: "" });
@@ -37,64 +36,66 @@ const AddDoctor = () => {
     setFormState({
       username: "",
       password: "",
-    })
+    });
   };
 
   return (
-    <div>
+    <div className="container text-center">
       {Auth.loggedIn() ? (
-        <div>
-          <p className={`${style.option}`}>Add new login credentials</p>
-          <p></p>
+        <div className="row justify-content-around">
+          <div className="col-4">
+            <p className={`${style.option}`}>Add new login credentials</p>
 
-          <div>
-            <form
-              className={`form ${style.severityForm}`}
-              onSubmit={handleAddDoc}
-            >
-              <input
-                value={formState.username}
-                placeholder="Username"
-                type="username"
-                name="username"
-                className={`form-control ${style.formItem}`}
-                onChange={handleChange}
-              />
-              <input
-                value={formState.password}
-                placeholder="Password"
-                type="password"
-                name="password"
-                className={`form-control ${style.formItem}`}
-                onChange={handleChange}
-              />
-              <button
-                className={`btn btn-warning ${style.button}`}
-                type="submit"
+            <div>
+              <form
+                className={`form ${style.severityForm}`}
+                onSubmit={handleAddDoc}
               >
-                Submit
-              </button>
+                <input
+                  value={formState.username}
+                  placeholder="Username"
+                  type="username"
+                  name="username"
+                  className={`form-control ${style.formItem}`}
+                  onChange={handleChange}
+                />
+                <input
+                  value={formState.password}
+                  placeholder="Password"
+                  type="password"
+                  name="password"
+                  className={`form-control ${style.formItem}`}
+                  onChange={handleChange}
+                />
+                <button
+                  className={`btn btn-warning ${style.button}`}
+                  type="submit"
+                >
+                  Submit
+                </button>
 
-              {data && (
-                <div>
-                  <p>
-                    Login credentals for {data.addDoctor.doctor.username} are
-                    now in the database
-                  </p>
-                </div>
-              )}
+                {data && (
+                  <div>
+                    <p>
+                      Login credentals for {data.addDoctor.doctor.username} are
+                      now in the database
+                    </p>
+                  </div>
+                )}
 
-              {error && (
-                <div>
-                  <p className={style.error}>{error.message}</p>
-                </div>
-              )}
-            </form>
+                {error && (
+                  <div>
+                    <p className={style.error}>{error.message}</p>
+                  </div>
+                )}
+              </form>
+            </div>
           </div>
-              {/* update rooms avaibale div */}
-              <div>
-                <UpdateRooms/>
-              </div>
+          <div className={`${style.vertical} vr col-3`}></div>
+          {/* update rooms avaibale div */}
+          <div className="col-4">
+            <UpdateRooms />
+          </div>
         </div>
       ) : (
         <LoginPrompt />

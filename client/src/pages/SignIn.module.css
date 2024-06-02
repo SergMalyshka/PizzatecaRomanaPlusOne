@@ -64,3 +64,10 @@
     max-width: 600px;
     margin: auto;
 }
+
+.vrl {
+    border-left: 6px solid#47A8BD;
+    height: 250px;
+    position: absolute;
+    left: 50%;
+}
