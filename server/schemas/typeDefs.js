@@ -28,7 +28,7 @@ type Patient {
 
   type Rooms {
     _id: ID
-    available: Int!
+    available: Int
   }
 
   # required for login
@@ -47,7 +47,7 @@ type Patient {
     # get one visit
     getOneVisit(_id:ID!):Visit
     #get rooms amount
-    getRooms: Rooms
+    getRooms:[Rooms]!
   }
 
   type Mutation {
@@ -66,7 +66,7 @@ type Patient {
     # update visit status
     updateStatus(_id:ID!, status: String!): Visit!
     # update available rooms
-    updateRooms(available:Int): Rooms
+    updateRooms(_id:ID!, available:Int): Rooms
   }
 `;
 

@@ -1,0 +1,25 @@
+.error {
+    color: #F02D3A
+}
+
+.option, .loggedIn {
+    font-size: 3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #47A8BD
+}
+
+.formItem {
+    margin: 5px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.severityForm {
+    max-width: 600px;
+    margin: auto;
+}
+
+.button {
+    margin-top: 5px;
+    background-color: #ECA72C;
+}

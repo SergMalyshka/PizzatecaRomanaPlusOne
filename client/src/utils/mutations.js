@@ -169,3 +169,12 @@ export const QUERY_ALL_OPEN_VISITS = gql`
     }
   }
 `;
+
+export const UPDATE_ROOMS = gql`
+mutation UpdateRooms($id: ID!, $available: Int) {
+  updateRooms(_id: $id, available: $available) {
+    _id
+    available
+  }
+}
+`
