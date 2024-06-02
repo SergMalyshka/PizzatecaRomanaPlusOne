@@ -1,10 +1,10 @@
 # Romana Plus One
 
-## 📝  Description 📝 
+## 📝 Description 📝
 
 This application is specifically designed for use in medical settings, providing comprehensive tools for patient management as well as efficient organization and allocation of doctor consultation rooms. It facilitates seamless tracking of patient records and medical histories, while also ensuring that the scheduling and utilization of doctor rooms are optimized to enhance the overall efficiency of the healthcare facility. With its user-friendly interface and robust features, this app aims to improve the workflow within medical environments, thereby contributing to better patient care and operational effectiveness.
 
-##  📖 Table of Contents 📖
+## 📖 Table of Contents 📖
 
 -[Installation](#installation)
 
@@ -19,9 +19,11 @@ This application is specifically designed for use in medical settings, providing
 -[Questions](#questions)
 
 ## 🔧 Installation 🔧
-Run `npm i` in this app's root directory. Then run `node run develop`
 
-##  ⭐ Usage ⭐
+This app is live at https://pizzatecaromanaplusone-1.onrender.com
+
+## ⭐ Usage ⭐
+
 Medical professionals, including doctors and nurses, will log in to access and review patient information and visit details. Patients will be triaged and directed to various rooms according to the severity of their conditions. After receiving the necessary care, patients will be discharged accordingly. Here are some screenshot to show to usage of application:
 
 ![Site Screenshot](./client/public/Home%20Page.PNG)
@@ -29,8 +31,8 @@ Medical professionals, including doctors and nurses, will log in to access and r
 ![Site Screenshot](./client/public/Visit%20Details.PNG)
 ![Site Screenshot](./client/public/Wait%20Room.PNG)
 
-
 ## 📜 MIT License 📜
+
 ![License:MIT](https://img.shields.io/badge/License-MIT-blue)
 Copyright (c) 2024
 
@@ -41,16 +43,16 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.<br>
 [View license](https://opensource.org/license/mit-0/)
 
-##  📚 Credits 📚
+## 📚 Credits 📚
+
 [SergMalyshka](https://github.com/SergMalyshka), [Adpileggi](https://github.com/Adpileggi), [Carioto](https://github.com/Carioto), and [Jaystarz360](https://github.com/Jaystarz360)
 
-
-##  📚 Tests 📚
+## 📚 Tests 📚
 
 [Check out the Repository!](https://github.com/SergMalyshka/PizzatecaRomanaPlusOne)
 
-
 ## 🔧 Technologies 🔧
+
 <p>
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /> 
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" /> 
@@ -75,9 +77,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 <img src="https://img.shields.io/badge/Apollo%20GraphQL-311C87?&style=for-the-badge&logo=Apollo%20GraphQL&logoColor=white" />
 <img src="https://img.shields.io/badge/GraphQl-E10098?style=for-the-badge&logo=graphql&logoColor=white" /> 
 <img src="https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white" />
-</p> 
+</p>
 
 ## 💡 Questions 💡
+
 Contact any contributor by email at the following:<br>
 adpileggi@gmail.com, sergmalyshka@gmail.com, dcarioto114@outlook.com, or Jaystarz360@gmail.com
 
