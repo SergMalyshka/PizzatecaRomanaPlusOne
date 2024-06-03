@@ -5,7 +5,8 @@
 .option, .loggedIn {
     font-size: 3rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #47A8BD
+    color: #47A8BD;
+    margin-top: 12px;
 }
 
 .formItem {

@@ -93,7 +93,7 @@ const AddDoctor = () => {
           </div>
           <div className={`${style.vertical} vr col-3`}></div>
           {/* update rooms avaibale div */}
-          <div className="col-4">
+          <div className={`col-4`}>
             <UpdateRooms />
           </div>
         </div>
