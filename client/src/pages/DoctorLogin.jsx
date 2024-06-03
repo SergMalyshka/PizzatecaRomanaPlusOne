@@ -21,7 +21,6 @@ const DoctorLogin = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
     try {
       const { data } = await login({
@@ -33,7 +32,6 @@ const DoctorLogin = () => {
         return;
       }
 
-      console.log(data);
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
