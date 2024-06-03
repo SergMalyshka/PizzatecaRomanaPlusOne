@@ -1,11 +1,10 @@
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import style from './pages/style/style.css?inline'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 import App from './App.jsx';
-import Tab2 from './pages/Tab2';
+import VisitForm from './pages/VisitForm.jsx';
 import AddDoctor from './pages/AddDoctor.jsx';
 import DoctorLogin from './pages/DoctorLogin.jsx';
 import SignIn from './pages/SignIn.jsx';
@@ -36,7 +35,7 @@ const router = createBrowserRouter([
         element: <AddDoctor />
       },
       {path: '/visits/:visitId',
-        element: <Tab2/>
+        element: <VisitForm/>
       },
     ]
   },
