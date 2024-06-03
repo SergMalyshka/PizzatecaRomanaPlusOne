@@ -32,11 +32,11 @@ export const VisitWrapper = ({ visits }) => {
   const [error, setError] = useState("");
   const [availableRooms, setAvailableRooms] = useState("");
 
-  useEffect(() => {
-    if (data) {
-      setAvailableRooms(data.getRooms[0].available);
-    }
-  }, [data, setAvailableRooms]);
+  // useEffect(() => {
+  //   if (data) {
+  //     setAvailableRooms(data.getRooms[0].available);
+  //   }
+  // }, [data, setAvailableRooms]);
 
   const getVisitPos = (id) => waitingData.findIndex((visit) => visit.id === id);
   const handleDragEnd = (event) => {
@@ -53,7 +53,7 @@ export const VisitWrapper = ({ visits }) => {
   const setSeen = async () => {
     if (waitingData.length > 0) {
       // added availableRooms
-      if (seenData.length < availableRooms) {
+      if (seenData.length < 5) {
         const visit = waitingData[0];
         try {
           await updateStatus({
@@ -98,7 +98,7 @@ export const VisitWrapper = ({ visits }) => {
             <h2
               className={style.bigText}
               // added availableRooms
-            >{`Being Seen: ${seenData.length}/${availableRooms}`}</h2>
+            >{`Being Seen: ${seenData.length}/5`}</h2>
             <hr className={style.hr}></hr>
             <RoomList seenData={seenData} setSeenDataFn={setSeenDataFn} />
           </div>
