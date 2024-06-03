@@ -44,7 +44,7 @@ const UpdateRooms = () => {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div>
+        <div className={style.padding}>
           <div>
             <h2 className={style.option}>Update available rooms</h2>
             <p>
