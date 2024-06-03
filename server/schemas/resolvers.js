@@ -22,7 +22,7 @@ const resolvers = {
       return Visit.find({status: {$in: ['Waiting', 'Being Seen']}}).populate('patient')
     },
     getOneVisit: async (parent, {_id}) => {
-      const getVisit = await Visit.findOne({_id:_id}).populate('patient')
+      const getVisit = await Visit.findOne({_id:_id}).populate({path: 'patient', populate: [{path: 'visits'}]})
       return getVisit
     },
     getRooms: async () => {return Rooms.find()}
