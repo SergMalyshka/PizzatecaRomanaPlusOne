@@ -13,10 +13,16 @@ query GetOneVisit($id: ID!) {
       medicalHistory
       allergies
       medications
-    firstName
-    lastName  
-    dob
+      firstName
+      lastName
+      dob
+      visits {
+        id
+        date
+        reason
+      }
     }
+    room
   }
 }
 `

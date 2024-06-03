@@ -7,6 +7,7 @@ import PatientDetails from "../components/PatientDetails/PatientDetails";
 import PreviousNotes from '../components/PreviousNotes/PreviousNotes';
 import styles from './VisitForm.module.css';
 import style from "../components/VisitList/VisitList.module.css"
+import PreviousVisits from '../components/PreviousVisits/PreviousVisits';
 
 
 const VisitForm = () => {
@@ -40,10 +41,10 @@ const VisitForm = () => {
     return <div>Error loading visit details</div>;
   }
 
+  const previousVisits = data.getOneVisit.patient.visits
+  
   const visitData = data.getOneVisit;
-
   const fullName = visitData.patient.firstName + " " + visitData.patient.lastName;
-  console.log(fullName)
 
   return (
     <>
@@ -84,6 +85,9 @@ const VisitForm = () => {
 
       </form>
       <PreviousNotes data={visitData} />
+
+      
+      <PreviousVisits data={visitData.patient.visits} id={visitId}/>
     </>
   );
 };
