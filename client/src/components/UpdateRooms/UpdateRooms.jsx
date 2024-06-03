@@ -12,14 +12,14 @@ const UpdateRooms = () => {
     refetchQueries: [QUERY_GET_ROOMS, "GetRooms"],
   });
 
-  // useEffect(() => {
-  //   if (data) {
-  //     setRoomAmount({
-  //       id: data.getRooms[0]._id,
-  //       available: data.getRooms[0].available,
-  //     });
-  //   }
-  // }, [data, setRoomAmount]);
+  useEffect(() => {
+    if (data) {
+      setRoomAmount({
+        id: data.getRooms[0]._id,
+        available: data.getRooms[0].available,
+      });
+    }
+  }, [data, setRoomAmount]);
 
   const handleChange = (event) => {
     const { value } = event.target;
@@ -44,7 +44,7 @@ const UpdateRooms = () => {
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <div>
+        <div className={style.padding}>
           <div>
             <h2 className={style.option}>Update available rooms</h2>
             <p>
