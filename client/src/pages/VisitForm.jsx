@@ -25,7 +25,6 @@ const VisitForm = () => {
       const { data } = await updateVisit({
         variables: { id: visitId, notes },
       });
-      console.log("🚀 ~ handleFormSubmit ~ data:", data);
       refetch();
       setNotes('');
     } catch (err) {
@@ -41,14 +40,12 @@ const VisitForm = () => {
     return <div>Error loading visit details</div>;
   }
 
-  const previousVisits = data.getOneVisit.patient.visits
-  
   const visitData = data.getOneVisit;
   const fullName = visitData.patient.firstName + " " + visitData.patient.lastName;
 
   return (
     <>
-      <h2 className={styles.header}>{fullName}</h2>
+      <h2 className={styles.header}>{`${fullName} - ${visitData.reason}`}</h2>
       <form className="flex-row justify-center justify-space-between-md align-center"
         onSubmit={handleFormSubmit}>
         <div className='row'>
@@ -86,7 +83,7 @@ const VisitForm = () => {
       </form>
       <PreviousNotes data={visitData} />
 
-      
+
       <PreviousVisits data={visitData.patient.visits} id={visitId}/>
     </>
   );
